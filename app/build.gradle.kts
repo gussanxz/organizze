@@ -28,10 +28,6 @@ android {
             )
         }
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
 }
 
 dependencies {
@@ -55,8 +51,11 @@ dependencies {
     implementation("com.google.firebase:firebase-auth")//Auth firebase
     implementation("com.google.firebase:firebase-firestore")//Firestore firebase. Detabase
     implementation("com.google.firebase:firebase-storage")//Storeage firebase. Armazenamento de imagem
+    implementation("com.github.gussanxz:organizze:main-SNAPSHOT")
 
 
     // Add the dependencies for any other desired Firebase products
     // https://firebase.google.com/docs/android/setup#available-libraries
+
+    implementation("com.github.gussanxz:organizze:main-SNAPSHOT")
 }
