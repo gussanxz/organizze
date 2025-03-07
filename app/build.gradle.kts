@@ -3,6 +3,7 @@ plugins {
 
     // Add the Google services Gradle plugin
     id("com.google.gms.google-services")
+    id ("maven-publish")
 }
 
 android {
@@ -52,9 +53,10 @@ dependencies {
     implementation(libs.firebase.firestore)//Firestore firebase. Detabase
     implementation(libs.firebase.storage)//Storeage firebase. Armazenamento de imagem
     //implementation(libs.organizze)
-    implementation("com.github.gussanxz:organizze:-919c01f66e-1")
+    implementation("com.github.gussanxz:organizze:4a6994f07e43aad843eaa3e184771e54ec36631f")
 
 
     // Add the dependencies for any other desired Firebase products
     // https://firebase.google.com/docs/android/setup#available-libraries
 }
+
