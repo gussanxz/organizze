@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "com.gussanxz.organizze"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.gussanxz.organizze"
@@ -42,20 +42,19 @@ dependencies {
 
     //Dependencias Firebase
     // Import the Firebase BoM
-    implementation(platform("com.google.firebase:firebase-bom:33.10.0"))
+    implementation(platform(libs.firebase.bom))
 
 
-    // TODO: Add the dependencies for Firebase products you want to use
+    // Add the dependencies for Firebase products you want to use
     // When using the BoM, don't specify versions in Firebase dependencies
-    implementation("com.google.firebase:firebase-analytics")//Analytics firebase
-    implementation("com.google.firebase:firebase-auth")//Auth firebase
-    implementation("com.google.firebase:firebase-firestore")//Firestore firebase. Detabase
-    implementation("com.google.firebase:firebase-storage")//Storeage firebase. Armazenamento de imagem
-    implementation("com.github.gussanxz:organizze:main-SNAPSHOT")
+    implementation(libs.firebase.analytics)//Analytics firebase
+    implementation(libs.firebase.auth)//Auth firebase
+    implementation(libs.firebase.firestore)//Firestore firebase. Detabase
+    implementation(libs.firebase.storage)//Storeage firebase. Armazenamento de imagem
+    //implementation(libs.organizze)
+    implementation("com.github.gussanxz:organizze:-919c01f66e-1")
 
 
     // Add the dependencies for any other desired Firebase products
     // https://firebase.google.com/docs/android/setup#available-libraries
-
-    implementation("com.github.gussanxz:organizze:main-SNAPSHOT")
 }
