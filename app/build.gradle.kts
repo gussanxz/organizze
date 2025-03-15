@@ -59,4 +59,6 @@ dependencies {
 
     // Add the dependencies for any other desired Firebase products
     // https://firebase.google.com/docs/android/setup#available-libraries
+
+    implementation("com.github.heinrichreimer:material-intro:2.0.0")
 }
