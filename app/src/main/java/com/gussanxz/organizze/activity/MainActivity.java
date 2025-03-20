@@ -1,15 +1,13 @@
-package com.gussanxz.organizze;
+package com.gussanxz.organizze.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 
-import com.gussanxz.organizze.activity.CadastroActivity;
-import com.gussanxz.organizze.activity.LoginActivity;
+import com.gussanxz.organizze.R;
 import com.heinrichreimersoftware.materialintro.app.IntroActivity;
 import com.heinrichreimersoftware.materialintro.slide.FragmentSlide;
-import com.heinrichreimersoftware.materialintro.slide.SimpleSlide;
 
 public class MainActivity extends IntroActivity {
 
