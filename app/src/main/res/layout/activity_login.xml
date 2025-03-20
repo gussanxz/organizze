@@ -51,14 +51,14 @@ tools:context=".activity.CadastroActivity">
         android:ems="10"
         android:hint="Senha"
         android:inputType="text|textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/buttonCadastrar"
+        app:layout_constraintBottom_toTopOf="@+id/buttonEntrar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editEmail" />
 
     <Button
-        android:id="@+id/buttonCadastrar"
+        android:id="@+id/buttonEntrar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
