@@ -32,6 +32,9 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -40,6 +43,8 @@ dependencies {
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
+    implementation(libs.navigation.fragment)
+    implementation(libs.navigation.ui)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
@@ -61,4 +66,7 @@ dependencies {
     // https://firebase.google.com/docs/android/setup#available-libraries
 
     implementation("com.github.heinrichreimer:material-intro:2.0.0")
+
+    //added FloatActionButton
+    implementation("com.github.clans:fab:1.6.4")
 }
