@@ -1,22 +1,14 @@
 package com.gussanxz.organizze.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
-import android.view.View;
-import android.widget.Toolbar;
-
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-
 import com.gussanxz.organizze.databinding.ActivityPrincipalBinding;
-
 import com.gussanxz.organizze.R;
 
 public class PrincipalActivity extends AppCompatActivity {
@@ -40,10 +32,11 @@ public class PrincipalActivity extends AppCompatActivity {
          */
     }
 
-    @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_principal);
-        return NavigationUI.navigateUp(navController, appBarConfiguration)
-                || super.onSupportNavigateUp();
+    public void adicionarReceita(View view){
     }
+
+    public void adicionarDespesa(View view){
+
+    }
+
 }
