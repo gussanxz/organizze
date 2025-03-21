@@ -1,5 +1,6 @@
 package com.gussanxz.organizze.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,6 +21,8 @@ import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.gussanxz.organizze.R;
 import com.gussanxz.organizze.config.ConfiguracaoFirebase;
 import com.gussanxz.organizze.model.Usuario;
+
+import java.security.Principal;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -74,7 +77,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 if ( task.isSuccessful() ) {
 
-                    Toast.makeText(LoginActivity.this, "Sucesso ao fazer login", Toast.LENGTH_SHORT).show();
+                    abrirTelaPrincipal();
                     
                 }else {
 
@@ -94,6 +97,11 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void abrirTelaPrincipal() {
+        startActivity(new Intent(this, PrincipalActivity.class));
+        finish();
     }
 
 }
