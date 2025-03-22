@@ -6,5 +6,20 @@
         <item name="colorPrimary">@color/colorPrimary</item>
     </style>
 
+    <!-- Tema nas despesas !-->
+    <style name="despesaTheme" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimaryDespesa</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkDespesa</item>
+        <item name="colorAccent">@color/colorAccentDespesa</item>
+    </style>
+
+    <!-- Tema nas receitas !-->
+    <style name="receitaTheme" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimaryReceita</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkReceita</item>
+        <item name="colorAccent">@color/colorAccentReceita</item>
+    </style>
+
+
     <style name="Theme.Organizze" parent="Base.Theme.Organizze" />
 </resources>
