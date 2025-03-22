@@ -33,10 +33,11 @@ public class PrincipalActivity extends AppCompatActivity {
     }
 
     public void adicionarReceita(View view){
+        startActivity(new Intent(this, ReceitasActivity.class));
     }
 
     public void adicionarDespesa(View view){
-
+        startActivity(new Intent(this, DespesasActivity.class));
     }
 
 }
