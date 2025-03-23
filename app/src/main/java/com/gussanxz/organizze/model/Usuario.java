@@ -1,12 +1,33 @@
 package com.gussanxz.organizze.model;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.Exclude;
+import com.gussanxz.organizze.config.ConfiguracaoFirebase;
+
 public class Usuario {
 
+    private String idUsuario;
     private String nome;
     private String email;
     private String senha;
 
     public Usuario() {
+    }
+
+    public void salvar() {
+        DatabaseReference firebase = ConfiguracaoFirebase.getFirebaseDatabase();
+        firebase.child("usuarios")
+                .child( this.idUsuario )
+                .setValue( this );
+    }
+
+    @Exclude
+    public String getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(String idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public String getNome() {
@@ -25,6 +46,7 @@ public class Usuario {
         this.email = email;
     }
 
+    @Exclude
     public String getSenha() {
         return senha;
     }
