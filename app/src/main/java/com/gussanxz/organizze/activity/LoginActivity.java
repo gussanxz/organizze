@@ -104,4 +104,7 @@ public class LoginActivity extends AppCompatActivity {
         finish();
     }
 
+    public void cadastreSe(View view){
+        startActivity(new Intent(this, CadastroActivity.class));
+    }
 }

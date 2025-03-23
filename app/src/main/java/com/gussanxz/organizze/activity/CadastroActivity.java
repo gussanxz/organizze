@@ -1,6 +1,8 @@
 package com.gussanxz.organizze.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,6 +20,7 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.gussanxz.organizze.R;
 import com.gussanxz.organizze.config.ConfiguracaoFirebase;
+import com.gussanxz.organizze.helper.Base64Custom;
 import com.gussanxz.organizze.model.Usuario;
 
 public class CadastroActivity extends AppCompatActivity {
@@ -36,6 +39,7 @@ public class CadastroActivity extends AppCompatActivity {
         campoEmail = findViewById(R.id.editEmail);
         campoSenha = findViewById(R.id.editSenha);
         botaoCadastrar = findViewById(R.id.buttonCadastrar);
+        textoFacaLogin = findViewById(R.id.textFacaLogin);
 
         botaoCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,6 +86,9 @@ public class CadastroActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if ( task.isSuccessful() ){
 
+                    String idUsuario = Base64Custom.codificarBase64( usuario.getEmail());
+                    usuario.setIdUsuario( idUsuario );
+                    usuario.salvar();
                     finish();
 
                 }else {
@@ -103,6 +110,10 @@ public class CadastroActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void fazerLogin(View view){
+        startActivity(new Intent(this, LoginActivity.class));
     }
 
 }
