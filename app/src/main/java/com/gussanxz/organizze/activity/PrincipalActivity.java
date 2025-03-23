@@ -3,18 +3,15 @@ package com.gussanxz.organizze.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
-import androidx.navigation.ui.AppBarConfiguration;
-import com.gussanxz.organizze.databinding.ActivityPrincipalBinding;
+import com.google.firebase.auth.FirebaseAuth;
 import com.gussanxz.organizze.R;
+import com.gussanxz.organizze.config.ConfiguracaoFirebase;
 
 public class PrincipalActivity extends AppCompatActivity {
 
-    private AppBarConfiguration appBarConfiguration;
-    private ActivityPrincipalBinding binding;
+    private FirebaseAuth autenticacao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +35,12 @@ public class PrincipalActivity extends AppCompatActivity {
 
     public void adicionarDespesa(View view){
         startActivity(new Intent(this, DespesasActivity.class));
+    }
+
+    public void deslogarUsuario(View view){
+        autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
+        autenticacao.signOut();
+        startActivity(new Intent(this, LoginActivity.class));
     }
 
 }
