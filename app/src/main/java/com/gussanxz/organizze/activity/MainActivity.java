@@ -3,9 +3,7 @@ package com.gussanxz.organizze.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
-
-import com.google.firebase.Firebase;
+import androidx.activity.EdgeToEdge;
 import com.google.firebase.auth.FirebaseAuth;
 import com.gussanxz.organizze.R;
 import com.gussanxz.organizze.config.ConfiguracaoFirebase;
@@ -19,6 +17,7 @@ public class MainActivity extends IntroActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
         //setContentView(R.layout.activity_main);
 
         verificarUsuarioLogado();
