@@ -66,7 +66,6 @@
             android:onClick="adicionarReceita"
             android:src="@drawable/ic_adicionar_branco_24"
             app:fab_colorPressed="@color/colorPrimaryDarkReceita"
-            app:fab_size="mini"
             fab:fab_colorNormal="@color/colorPrimaryReceita"
             fab:fab_label="Receita"
             fab:fab_size="mini" />
