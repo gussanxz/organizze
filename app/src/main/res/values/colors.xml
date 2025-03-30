@@ -9,12 +9,12 @@
 
     <!-- Cores despesas!-->
     <color name="colorPrimaryDespesa">#FF706A</color>
-    <color name="colorPrimaryDarkDespesa">#E66560</color>
+    <color name="colorPrimaryDarkDespesa">#B34D49</color>
     <color name="colorAccentDespesa">@color/colorPrimaryDespesa</color>
 
     <!-- Cores receitas!-->
     <color name="colorPrimaryReceita">#00D39E</color>
-    <color name="colorPrimaryDarkReceita">#00BE8B</color>
+    <color name="colorPrimaryDarkReceita">#008965</color>
     <color name="colorAccentReceita">@color/colorPrimaryReceita</color>
 
 </resources>

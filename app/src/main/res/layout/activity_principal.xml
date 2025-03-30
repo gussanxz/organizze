@@ -54,6 +54,7 @@
             android:layout_height="wrap_content"
             android:onClick="adicionarDespesa"
             android:src="@drawable/ic_adicionar_branco_24"
+            app:fab_colorPressed="@color/colorPrimaryDarkDespesa"
             fab:fab_colorNormal="@color/colorPrimaryDespesa"
             fab:fab_label="Despesa"
             fab:fab_size="mini" />
@@ -64,6 +65,8 @@
             android:layout_height="wrap_content"
             android:onClick="adicionarReceita"
             android:src="@drawable/ic_adicionar_branco_24"
+            app:fab_colorPressed="@color/colorPrimaryDarkReceita"
+            app:fab_size="mini"
             fab:fab_colorNormal="@color/colorPrimaryReceita"
             fab:fab_label="Receita"
             fab:fab_size="mini" />
