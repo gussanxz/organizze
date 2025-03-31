@@ -73,4 +73,10 @@ dependencies {
 
     //added FloatActionButton
     implementation("com.github.clans:fab:1.6.4")
+
+    //added material calendarview from: https://github.com/prolificinteractive/material-calendarview
+    implementation("com.github.prolificinteractive:material-calendarview:1.6.0") {
+        exclude(group = "com.android.support", module = "support-compat")
+    }
+
 }
