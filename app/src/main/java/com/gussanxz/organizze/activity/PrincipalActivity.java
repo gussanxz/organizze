@@ -19,6 +19,7 @@ public class PrincipalActivity extends AppCompatActivity {
 
     private FirebaseAuth autenticacao;
     private MaterialCalendarView calendarView;
+    private TextView textoSaudacao, textoSaldo;
 
 
     @Override
@@ -26,12 +27,16 @@ public class PrincipalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_principal);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        toolbar.setTitle("Organizze");
+
+
+        textoSaudacao = findViewById(R.id.textSaudacao);
+        textoSaldo = findViewById(R.id.textSaldo);
         calendarView = findViewById(R.id.calendarView);
         configuraCalendarView();
-
         /*
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.);
         fab.setOnClickListener((view) {
