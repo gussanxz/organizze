@@ -20,6 +20,12 @@
         <item name="colorAccent">@color/colorAccentReceita</item>
     </style>
 
+    <!-- Tema action bar-->
+    <style name="principalTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="backgroundColor">@color/colorPrimary</item>
+        <item name="colorPrimary">@color/colorPrimaryReceita</item>
+    </style>
+
 
     <style name="Theme.Organizze" parent="Base.Theme.Organizze" />
 </resources>
