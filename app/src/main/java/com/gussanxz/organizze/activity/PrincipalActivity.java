@@ -2,6 +2,7 @@ package com.gussanxz.organizze.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -35,7 +36,8 @@ public class PrincipalActivity extends AppCompatActivity {
     private Double resumoUsuario = 0.0;
     private FirebaseAuth autenticacao  = ConfiguracaoFirebase.getFirebaseAutenticacao();
     private DatabaseReference firebaseRef = ConfiguracaoFirebase.getFirebaseDatabase();
-
+    private DatabaseReference usuarioRef = ConfiguracaoFirebase.getFirebaseDatabase();
+    private ValueEventListener valueEventListenerUsuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,15 +54,22 @@ public class PrincipalActivity extends AppCompatActivity {
         textoSaldo = findViewById(R.id.textSaldo);
         calendarView = findViewById(R.id.calendarView);
         configuraCalendarView();
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         recuperarResumo();
     }
 
     public void recuperarResumo(){
         String emailUsuario = autenticacao.getCurrentUser().getEmail();
         String idUsuario = Base64Custom.codificarBase64( emailUsuario );
-        DatabaseReference usuarioRef = firebaseRef.child("usuarios").child(idUsuario);
+        usuarioRef = firebaseRef.child("usuarios").child(idUsuario);
 
-        usuarioRef.addValueEventListener(new ValueEventListener() {
+        Log.i("onStart", "Evento exibir dados adicionado");
+        valueEventListenerUsuario = usuarioRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
@@ -128,4 +137,10 @@ public class PrincipalActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.i("onStop", "Evento exibir dados removido");
+        usuarioRef.removeEventListener( valueEventListenerUsuario );
+    }
 }
