@@ -52,6 +52,7 @@ public class PrincipalActivity extends AppCompatActivity {
         textoSaldo = findViewById(R.id.textSaldo);
         calendarView = findViewById(R.id.calendarView);
         configuraCalendarView();
+        recuperarResumo();
     }
 
     public void recuperarResumo(){
@@ -72,7 +73,7 @@ public class PrincipalActivity extends AppCompatActivity {
                 DecimalFormat decimalFormat = new DecimalFormat("0.##");
                 String resultadoFormatado = decimalFormat.format( resumoUsuario );
 
-                textoSaudacao.setText("Ola, " + usuario.getNome() );
+                textoSaudacao.setText("Ola, " + usuario.getNome() + "!");
                 textoSaldo.setText( "R$ " + resultadoFormatado );
 
             }
