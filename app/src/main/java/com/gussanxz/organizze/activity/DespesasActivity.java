@@ -63,7 +63,9 @@ public class DespesasActivity extends AppCompatActivity {
             atualizarDespesa( despesaAtualizada );
 
             movimentacao.salvar(data);
+            Toast.makeText(this, "Despesa adicionada!", Toast.LENGTH_SHORT).show();
 
+            finish();
         }
     }
 
