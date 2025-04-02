@@ -12,17 +12,29 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 import com.gussanxz.organizze.R;
 import com.gussanxz.organizze.config.ConfiguracaoFirebase;
+import com.gussanxz.organizze.helper.Base64Custom;
+import com.gussanxz.organizze.model.Usuario;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 import com.prolificinteractive.materialcalendarview.OnMonthChangedListener;
 
+import java.text.DecimalFormat;
+
 public class PrincipalActivity extends AppCompatActivity {
 
-    private FirebaseAuth autenticacao;
     private MaterialCalendarView calendarView;
     private TextView textoSaudacao, textoSaldo;
+    private Double despesaTotal = 0.0;
+    private Double receitaTotal = 0.0;
+    private Double resumoUsuario = 0.0;
+    private FirebaseAuth autenticacao  = ConfiguracaoFirebase.getFirebaseAutenticacao();
+    private DatabaseReference firebaseRef = ConfiguracaoFirebase.getFirebaseDatabase();
 
 
     @Override
@@ -49,6 +61,35 @@ public class PrincipalActivity extends AppCompatActivity {
          */
     }
 
+    public void recuperarResumo(){
+        String emailUsuario = autenticacao.getCurrentUser().getEmail();
+        String idUsuario = Base64Custom.codificarBase64( emailUsuario );
+        DatabaseReference usuarioRef = firebaseRef.child("usuarios").child(idUsuario);
+
+        usuarioRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                Usuario usuario = snapshot.getValue( Usuario.class );
+
+                despesaTotal = usuario.getDespesaTotal();
+                receitaTotal = usuario.getReceitaTotal();
+                resumoUsuario = receitaTotal - despesaTotal;
+
+                DecimalFormat decimalFormat = new DecimalFormat("0.##");
+                String resultadoFormatado = decimalFormat.format( resumoUsuario );
+
+                textoSaudacao.setText("Ola, " + usuario.getNome() );
+                textoSaldo.setText( "R$ " + resultadoFormatado );
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_principal, menu);
@@ -60,7 +101,6 @@ public class PrincipalActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.menuSair){
-                autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
                 autenticacao.signOut();
                 startActivity(new Intent(this, MainActivity.class));
                 finish();
