@@ -52,13 +52,6 @@ public class PrincipalActivity extends AppCompatActivity {
         textoSaldo = findViewById(R.id.textSaldo);
         calendarView = findViewById(R.id.calendarView);
         configuraCalendarView();
-        /*
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.);
-        fab.setOnClickListener((view) {
-            Snackbar.make(view, "Replace with your own action",
-                    .setAction("Action", null).show());
-        });
-         */
     }
 
     public void recuperarResumo(){
