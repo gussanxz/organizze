@@ -21,14 +21,18 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 import com.gussanxz.organizze.R;
+import com.gussanxz.organizze.adapter.AdapterMovimentacao;
 import com.gussanxz.organizze.config.ConfiguracaoFirebase;
 import com.gussanxz.organizze.helper.Base64Custom;
+import com.gussanxz.organizze.model.Movimentacao;
 import com.gussanxz.organizze.model.Usuario;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 import com.prolificinteractive.materialcalendarview.OnMonthChangedListener;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PrincipalActivity extends AppCompatActivity {
 
@@ -42,6 +46,8 @@ public class PrincipalActivity extends AppCompatActivity {
     private DatabaseReference usuarioRef = ConfiguracaoFirebase.getFirebaseDatabase();
     private ValueEventListener valueEventListenerUsuario;
     private RecyclerView recyclerView;
+    private AdapterMovimentacao adapterMovimentacao;
+    private List<Movimentacao> movimentacoes = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,12 +67,13 @@ public class PrincipalActivity extends AppCompatActivity {
         configuraCalendarView();
 
         //Configurar adapter recyclerview
+        adapterMovimentacao = new AdapterMovimentacao(movimentacoes, this);
 
         //Configurar RecyclerView
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
-        //recyclerView.setAdapter();
+        recyclerView.setAdapter(adapterMovimentacao);
 
     }
 
