@@ -48,6 +48,8 @@ public class PrincipalActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private AdapterMovimentacao adapterMovimentacao;
     private List<Movimentacao> movimentacoes = new ArrayList<>();
+    private DatabaseReference movimentacaoRef = ConfiguracaoFirebase.getFirebaseDatabase();
+    private String mesAnoSelecionado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,10 +79,12 @@ public class PrincipalActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        recuperarResumo();
+    public void recuperarMovimentacoes(){
+        String emailUsuario = autenticacao.getCurrentUser().getEmail();
+        String idUsuario = Base64Custom.codificarBase64( emailUsuario );
+        movimentacaoRef.child("movimentacao")
+                .child(idUsuario)
+                .child(mesAnoSelecionado);
     }
 
     public void recuperarResumo(){
@@ -149,6 +153,9 @@ public class PrincipalActivity extends AppCompatActivity {
     public void configuraCalendarView(){
         CharSequence meses[] = {"Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"};
         calendarView.setTitleMonths( meses );
+        CalendarDay dataAtual = calendarView.getCurrentDate();
+        mesAnoSelecionado = String.valueOf(dataAtual);
+
         calendarView.setOnMonthChangedListener(new OnMonthChangedListener() {
             @Override
             public void onMonthChanged(MaterialCalendarView widget, CalendarDay date) {
@@ -157,6 +164,14 @@ public class PrincipalActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        recuperarResumo();
+    }
+
+
+    ;
     @Override
     protected void onStop() {
         super.onStop();
