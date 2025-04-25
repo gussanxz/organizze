@@ -194,6 +194,9 @@ public class PrincipalActivity extends AppCompatActivity {
                 String mesSelecionado = String.format("%02d", (date.getMonth() + 1) );
                 mesAnoSelecionado = String.valueOf( mesSelecionado + "" + date.getYear() );
                 Log.i("MES", "mes: " + mesAnoSelecionado);
+
+                movimentacaoRef.removeEventListener(valueEventListenerMovimentacoes);
+                recuperarMovimentacoes();
             }
         });
     }
