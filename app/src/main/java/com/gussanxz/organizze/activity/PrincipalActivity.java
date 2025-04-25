@@ -165,6 +165,7 @@ public class PrincipalActivity extends AppCompatActivity {
             @Override
             public void onMonthChanged(MaterialCalendarView widget, CalendarDay date) {
                 mesAnoSelecionado = String.valueOf( (date.getMonth() + 1)+ "" + date.getYear() );
+                Log.i("MES", "mes: " + mesAnoSelecionado);
             }
         });
     }
