@@ -97,6 +97,9 @@ public class PrincipalActivity extends AppCompatActivity {
                 for (DataSnapshot dados: snapshot.getChildren() ){
 
                     Log.i("dados", "retorno: " + dados.toString() );
+                    Movimentacao movimentacao = dados.getValue( Movimentacao.class );
+
+                    Log.i("dados", "retorno: " + movimentacao.getCategoria() );
 
                 }
 
