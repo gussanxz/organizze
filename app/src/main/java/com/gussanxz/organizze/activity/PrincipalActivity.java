@@ -68,6 +68,7 @@ public class PrincipalActivity extends AppCompatActivity {
         calendarView = findViewById(R.id.calendarView);
         recyclerView = findViewById(R.id.recyclesMovimentos);
         configuraCalendarView();
+        swipe();
 
         //Configurar adapter recyclerview
         adapterMovimentacao = new AdapterMovimentacao(movimentacoes, this);
@@ -77,6 +78,12 @@ public class PrincipalActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapterMovimentacao);
+
+    }
+
+    public void swipe(){
+
+
 
     }
 
