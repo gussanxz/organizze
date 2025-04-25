@@ -49,7 +49,7 @@ public class PrincipalActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private AdapterMovimentacao adapterMovimentacao;
     private List<Movimentacao> movimentacoes = new ArrayList<>();
-    private DatabaseReference movimentacaoRef = ConfiguracaoFirebase.getFirebaseDatabase();
+    private DatabaseReference movimentacaoRef;
     private String mesAnoSelecionado;
 
     @Override
@@ -83,7 +83,7 @@ public class PrincipalActivity extends AppCompatActivity {
     public void recuperarMovimentacoes(){
         String emailUsuario = autenticacao.getCurrentUser().getEmail();
         String idUsuario = Base64Custom.codificarBase64( emailUsuario );
-        movimentacaoRef.child("movimentacao")
+        movimentacaoRef = firebaseRef.child("movimentacao")
                 .child(idUsuario)
                 .child(mesAnoSelecionado);
 
@@ -96,10 +96,10 @@ public class PrincipalActivity extends AppCompatActivity {
 
                 for (DataSnapshot dados: snapshot.getChildren() ){
 
-                    Log.i("dados", "retorno: " + dados.toString() );
+                    Log.i("dadosRetorno", "dados: " + dados.toString() );
                     Movimentacao movimentacao = dados.getValue( Movimentacao.class );
 
-                    Log.i("dados", "retorno: " + movimentacao.getCategoria() );
+                    Log.i("dadosRetorno", "dados: " + movimentacao.getCategoria() );
 
                 }
 
@@ -181,13 +181,14 @@ public class PrincipalActivity extends AppCompatActivity {
         calendarView.setTitleMonths( meses );
 
         CalendarDay dataAtual = calendarView.getCurrentDate();
-
-        mesAnoSelecionado = String.valueOf( (dataAtual.getMonth() + 1) + "" + dataAtual.getYear() );
+        String mesSelecionado = String.format("%02d", (dataAtual.getMonth() + 1) );
+        mesAnoSelecionado = String.valueOf( mesSelecionado + "" + dataAtual.getYear() );
 
         calendarView.setOnMonthChangedListener(new OnMonthChangedListener() {
             @Override
             public void onMonthChanged(MaterialCalendarView widget, CalendarDay date) {
-                mesAnoSelecionado = String.valueOf( (date.getMonth() + 1)+ "" + date.getYear() );
+                String mesSelecionado = String.format("%02d", (date.getMonth() + 1) );
+                mesAnoSelecionado = String.valueOf( mesSelecionado + "" + date.getYear() );
                 Log.i("MES", "mes: " + mesAnoSelecionado);
             }
         });
