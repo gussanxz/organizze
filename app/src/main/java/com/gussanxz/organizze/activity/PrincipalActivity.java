@@ -92,6 +92,14 @@ public class PrincipalActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
+                movimentacoes.clear();
+
+                for (DataSnapshot dados: snapshot.getChildren() ){
+
+                    Log.i("dados", "retorno: " + dados.toString() );
+
+                }
+
             }
 
             @Override
