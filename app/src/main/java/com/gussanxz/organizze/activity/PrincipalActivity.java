@@ -87,7 +87,9 @@ public class PrincipalActivity extends AppCompatActivity {
         ItemTouchHelper.Callback itemTouch = new ItemTouchHelper.Callback() {
             @Override
             public int getMovementFlags(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
-                return 0;
+                int dragFlags = ItemTouchHelper.ACTION_STATE_IDLE;
+                int swipeFlags = ItemTouchHelper.START | ItemTouchHelper.END;
+                return makeMovementFlags(dragFlags, swipeFlags);
             }
 
             @Override
@@ -97,7 +99,7 @@ public class PrincipalActivity extends AppCompatActivity {
 
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-
+                Log.i("swipe", "item foi arrastado");
             }
         };
 
