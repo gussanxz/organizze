@@ -103,6 +103,8 @@ public class PrincipalActivity extends AppCompatActivity {
             }
         };
 
+        new ItemTouchHelper( itemTouch ).attachToRecyclerView( recyclerView );
+
     }
 
     public void recuperarMovimentacoes(){
