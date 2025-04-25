@@ -153,13 +153,15 @@ public class PrincipalActivity extends AppCompatActivity {
     public void configuraCalendarView(){
         CharSequence meses[] = {"Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"};
         calendarView.setTitleMonths( meses );
+
         CalendarDay dataAtual = calendarView.getCurrentDate();
-        mesAnoSelecionado = String.valueOf(dataAtual);
+
+        mesAnoSelecionado = String.valueOf( dataAtual.getMonth() + "" + dataAtual.getYear() );
 
         calendarView.setOnMonthChangedListener(new OnMonthChangedListener() {
             @Override
             public void onMonthChanged(MaterialCalendarView widget, CalendarDay date) {
-
+                mesAnoSelecionado = String.valueOf( date.getMonth() + "" + date.getYear() );
             }
         });
     }
