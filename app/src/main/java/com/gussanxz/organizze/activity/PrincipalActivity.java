@@ -101,7 +101,11 @@ public class PrincipalActivity extends AppCompatActivity {
 
                     Log.i("dadosRetorno", "dados: " + movimentacao.getCategoria() );
 
+                    movimentacoes.add( movimentacao );
+
                 }
+
+                adapterMovimentacao.notifyDataSetChanged();
 
             }
 
