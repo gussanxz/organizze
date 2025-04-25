@@ -159,12 +159,12 @@ public class PrincipalActivity extends AppCompatActivity {
 
         CalendarDay dataAtual = calendarView.getCurrentDate();
 
-        mesAnoSelecionado = String.valueOf( dataAtual.getMonth() + "" + dataAtual.getYear() );
+        mesAnoSelecionado = String.valueOf( (dataAtual.getMonth() + 1) + "" + dataAtual.getYear() );
 
         calendarView.setOnMonthChangedListener(new OnMonthChangedListener() {
             @Override
             public void onMonthChanged(MaterialCalendarView widget, CalendarDay date) {
-                mesAnoSelecionado = String.valueOf( date.getMonth() + "" + date.getYear() );
+                mesAnoSelecionado = String.valueOf( (date.getMonth() + 1)+ "" + date.getYear() );
             }
         });
     }
