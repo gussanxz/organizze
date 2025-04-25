@@ -85,6 +85,9 @@ public class PrincipalActivity extends AppCompatActivity {
         movimentacaoRef.child("movimentacao")
                 .child(idUsuario)
                 .child(mesAnoSelecionado);
+
+        Log.i("MES", "mes: " + mesAnoSelecionado);
+
     }
 
     public void recuperarResumo(){
@@ -170,6 +173,7 @@ public class PrincipalActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         recuperarResumo();
+        recuperarMovimentacoes();
     }
 
 
