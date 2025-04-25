@@ -196,5 +196,6 @@ public class PrincipalActivity extends AppCompatActivity {
         super.onStop();
         Log.i("onStop", "Evento exibir dados removido");
         usuarioRef.removeEventListener( valueEventListenerUsuario );
+        movimentacaoRef.removeEventListener(valueEventListenerMovimentacoes);
     }
 }
