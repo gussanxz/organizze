@@ -45,6 +45,7 @@ public class PrincipalActivity extends AppCompatActivity {
     private DatabaseReference firebaseRef = ConfiguracaoFirebase.getFirebaseDatabase();
     private DatabaseReference usuarioRef = ConfiguracaoFirebase.getFirebaseDatabase();
     private ValueEventListener valueEventListenerUsuario;
+    private ValueEventListener valueEventListenerMovimentacoes;
     private RecyclerView recyclerView;
     private AdapterMovimentacao adapterMovimentacao;
     private List<Movimentacao> movimentacoes = new ArrayList<>();
@@ -87,6 +88,17 @@ public class PrincipalActivity extends AppCompatActivity {
                 .child(mesAnoSelecionado);
 
         Log.i("MES", "mes: " + mesAnoSelecionado);
+        valueEventListenerMovimentacoes  =  movimentacaoRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
     }
 
