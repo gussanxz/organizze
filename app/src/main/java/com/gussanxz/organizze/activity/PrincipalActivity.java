@@ -128,6 +128,7 @@ public class PrincipalActivity extends AppCompatActivity {
                 Toast.makeText(PrincipalActivity.this,
                         "Cancelado",
                         Toast.LENGTH_SHORT).show();
+                adapterMovimentacao.notifyDataSetChanged();
             }
         });
 
