@@ -120,6 +120,16 @@ public class PrincipalActivity extends AppCompatActivity {
         alertDialog.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+                int position = viewHolder.getAdapterPosition();
+                movimentacao = movimentacoes.get( position );
+
+                String emailUsuario = autenticacao.getCurrentUser().getEmail();
+                String idUsuario = Base64Custom.codificarBase64( emailUsuario );
+                movimentacaoRef = firebaseRef.child("movimentacao")
+                        .child(idUsuario)
+                        .child(mesAnoSelecionado);
+                movimentacaoRef.child(movimentacao.getKey()).removeValue();
+                adapterMovimentacao.notifyItemRemoved(position);
 
             }
         });
