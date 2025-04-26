@@ -40,6 +40,17 @@
         fab:menu_icon="@drawable/ic_adicionar_branco_24">
 
         <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/menu_venda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="novaVenda"
+            android:src="@drawable/ic_adicionar_branco_24"
+            app:fab_colorPressed="@color/colorPrimaryDarkReceita"
+            fab:fab_colorNormal="@color/colorPrimaryReceita"
+            fab:fab_label="Registrar Venda"
+            fab:fab_size="mini" />
+
+        <com.github.clans.fab.FloatingActionButton
             android:id="@+id/menu_despesa"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

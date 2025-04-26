@@ -252,6 +252,10 @@ public class PrincipalActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void novaVenda(View view){
+        startActivity(new Intent(this, ReceitasActivity.class));
+    }
+
     public void adicionarReceita(View view){
         startActivity(new Intent(this, ReceitasActivity.class));
     }
