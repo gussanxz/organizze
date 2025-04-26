@@ -100,10 +100,15 @@ public class PrincipalActivity extends AppCompatActivity {
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 Log.i("swipe", "item foi arrastado");
+                excluirMovimentacao(viewHolder);
             }
         };
 
         new ItemTouchHelper( itemTouch ).attachToRecyclerView( recyclerView );
+
+    }
+
+    public void excluirMovimentacao(RecyclerView.ViewHolder viewHolder){
 
     }
 
