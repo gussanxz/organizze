@@ -5,141 +5,167 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/softGreen"
     tools:context=".activity.VendasActivity">
 
-    <TextView
-        android:id="@+id/textSelecioneCliente"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="8dp"
-        android:text="Selecione um cliente abaixo"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/listSelecioneCliente"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
-        android:id="@+id/listSelecioneCliente"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="24dp"
-        android:ems="10"
-        android:inputType="text"
-        android:hint="--------"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <EditText
-        android:id="@+id/editTextDescricaoVenda"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
-        android:ems="10"
-        android:hint="Descricao do servico ou produto"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listSelecioneCliente" />
 
-    <EditText
-        android:id="@+id/editTextValorVenda"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
-        android:ems="10"
-        android:hint="Valor"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDescricaoVenda" />
+    </LinearLayout>
 
-    <EditText
-        android:id="@+id/editTextJurosPorcento"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:hint="Juros %"
-        android:inputType="text"
-        app:layout_constraintEnd_toStartOf="@+id/editTextJurosReal"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="271dp" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/header_background"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:context=".activity.VendasActivity">
 
-    <EditText
-        android:id="@+id/editTextJurosReal"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:ems="10"
-        android:hint="Juros R$"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/editTextJurosPorcento"
-        tools:layout_editor_absoluteY="271dp" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout5"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="347dp">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/inputDataVenda"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/textSelecioneCliente"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="Data"
-            android:inputType="datetime|date" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="8dp"
+            android:text="Selecione um cliente abaixo"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/listSelecioneCliente"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout4"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout5">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/inputDataLembrete"
-            android:layout_width="match_parent"
+        <EditText
+            android:id="@+id/listSelecioneCliente"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="Data de lembrete" />
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="64dp"
+            android:layout_marginEnd="24dp"
+            android:ems="10"
+            android:hint="--------"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </com.google.android.material.textfield.TextInputLayout>
+        <EditText
+            android:id="@+id/editTextDescricaoVenda"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:ems="10"
+            android:hint="Descricao do servico ou produto"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/listSelecioneCliente" />
 
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="0dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        android:text="Com lembretes, te notificamos sobre a venda na data escolhida."
-        android:textAlignment="center"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout4" />
+        <EditText
+            android:id="@+id/editTextValorVenda"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:ems="10"
+            android:hint="Valor"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextDescricaoVenda" />
+
+        <EditText
+            android:id="@+id/editTextJurosPorcento"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:hint="Juros %"
+            android:inputType="text"
+            app:layout_constraintEnd_toStartOf="@+id/editTextJurosReal"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextValorVenda" />
+
+        <EditText
+            android:id="@+id/editTextJurosReal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="24dp"
+            android:ems="10"
+            android:hint="Juros R$"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/editTextJurosPorcento"
+            app:layout_constraintTop_toBottomOf="@+id/editTextValorVenda" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextJurosPorcento">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputDataVenda"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Data"
+                android:inputType="datetime|date" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout5">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputDataLembrete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Data de lembrete" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/textDataLembrete"
+            android:layout_width="0dp"
+            android:layout_height="47dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
+            android:text="Com lembretes, te notificamos sobre a venda na data escolhida."
+            android:textAlignment="center"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout4" />
 
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,7 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <solid android:color="@color/white"/> <!-- Cor vermelha do header -->
+
+    <corners android:topRightRadius="40dp" android:topLeftRadius="40dp"/>
+</shape>
