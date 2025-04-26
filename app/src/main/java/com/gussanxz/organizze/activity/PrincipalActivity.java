@@ -253,7 +253,7 @@ public class PrincipalActivity extends AppCompatActivity {
     }
 
     public void novaVenda(View view){
-        startActivity(new Intent(this, ReceitasActivity.class));
+        startActivity(new Intent(this, VendasActivity.class));
     }
 
     public void adicionarReceita(View view){
