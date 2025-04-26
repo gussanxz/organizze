@@ -53,6 +53,7 @@ public class PrincipalActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private AdapterMovimentacao adapterMovimentacao;
     private List<Movimentacao> movimentacoes = new ArrayList<>();
+    private Movimentacao movimentacao;
     private DatabaseReference movimentacaoRef;
     private String mesAnoSelecionado;
 
@@ -157,6 +158,7 @@ public class PrincipalActivity extends AppCompatActivity {
                     Movimentacao movimentacao = dados.getValue( Movimentacao.class );
 
                     Log.i("dadosRetorno", "dados: " + movimentacao.getCategoria() );
+                    movimentacao.setKey(dados.getKey());
 
                     movimentacoes.add( movimentacao );
 
