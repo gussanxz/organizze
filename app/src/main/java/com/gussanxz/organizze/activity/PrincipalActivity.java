@@ -159,6 +159,10 @@ public class PrincipalActivity extends AppCompatActivity {
             receitaTotal = receitaTotal - movimentacao.getValor();
             usuarioRef.child("receitaTotal").setValue(receitaTotal);
         }
+        if (movimentacao.getTipo().equals("d")){
+            despesaTotal = despesaTotal - movimentacao.getValor();
+            usuarioRef.child("despesaTotal").setValue(despesaTotal);
+        }
     }
 
     public void recuperarMovimentacoes(){
