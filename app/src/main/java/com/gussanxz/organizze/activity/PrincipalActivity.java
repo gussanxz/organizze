@@ -131,6 +131,8 @@ public class PrincipalActivity extends AppCompatActivity {
             }
         });
 
+        AlertDialog alert = alertDialog.create();
+        alert.show();
 
     }
 
