@@ -252,6 +252,10 @@ public class PrincipalActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void cadastroCliente(View view){
+        startActivity(new Intent(this, CadastroClienteActivity.class));
+    }
+
     public void novaVenda(View view){
         startActivity(new Intent(this, VendasActivity.class));
     }
