@@ -43,7 +43,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout2"
+            android:id="@+id/textInputData"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
@@ -62,7 +62,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout"
+            android:id="@+id/textInputCategoria"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -71,7 +71,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
+            app:layout_constraintTop_toBottomOf="@+id/textInputData">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editCategoria"
@@ -81,12 +81,15 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout3"
-            android:layout_width="411dp"
+            android:id="@+id/textInputDescricao"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            tools:layout_editor_absoluteY="155dp">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputCategoria">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editDescricao"
