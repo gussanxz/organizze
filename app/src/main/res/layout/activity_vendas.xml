@@ -9,7 +9,7 @@
     tools:context=".activity.VendasActivity">
 
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,11 +22,15 @@
             android:layout_width="wrap_content"
             android:layout_height="70dp"
             android:layout_weight="1"
-            android:text="Registrar Venda"
             android:gravity="center"
+            android:text="Registrar Venda"
             android:textAlignment="gravity"
-            android:textSize="24sp" />
-    </LinearLayout>
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/content"
