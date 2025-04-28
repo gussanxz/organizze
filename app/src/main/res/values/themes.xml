@@ -28,4 +28,10 @@
 
 
     <style name="Theme.Organizze" parent="Base.Theme.Organizze" />
+
+    <style name="NoElevationFab" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="elevation">0dp</item>
+        <item name="hoveredFocusedTranslationZ">0dp</item>
+        <item name="pressedTranslationZ">0dp</item>
+    </style>
 </resources>
