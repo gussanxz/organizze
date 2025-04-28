@@ -26,13 +26,13 @@ public class ProventosActivity extends AppCompatActivity {
     private Movimentacao movimentacao;
     private DatabaseReference firebaseRef = ConfiguracaoFirebase.getFirebaseDatabase();
     private FirebaseAuth autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
-    private Double receitaTotal;
+    private Double proventosTotal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_receitas);
+        setContentView(R.layout.activity_proventos);
 
         campoValor = findViewById(R.id.editValor);
         campoData = findViewById(R.id.editData);
@@ -41,11 +41,11 @@ public class ProventosActivity extends AppCompatActivity {
 
         //Prenche o campo data com a data atual
         campoData.setText(DateCustom.dataAtual());
-        recuperarReceitaTotal();
+        recuperarProventosTotal();
 
     }
 
-    public void salvarReceita(View view) {
+    public void salvarProventos(View view) {
 
         if (validarCamposProventos()) {
 
@@ -59,11 +59,11 @@ public class ProventosActivity extends AppCompatActivity {
             movimentacao.setData(data);
             movimentacao.setTipo("r");
 
-            Double receitaAtualizada = receitaTotal + valorRecuperado;
-            atualizarReceita( receitaAtualizada );
+            Double proventosAtualizada = proventosTotal + valorRecuperado;
+            atualizarProventos( proventosAtualizada );
 
             movimentacao.salvar(data);
-            Toast.makeText(this, "Receita adicionada!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Proventos adicionada!", Toast.LENGTH_SHORT).show();
 
             finish();
         }
@@ -110,7 +110,7 @@ public class ProventosActivity extends AppCompatActivity {
 
     }
 
-    public void recuperarReceitaTotal() {
+    public void recuperarProventosTotal() {
 
         String emailUsuario = autenticacao.getCurrentUser().getEmail();
         String idUsuario = Base64Custom.codificarBase64( emailUsuario );
@@ -120,7 +120,7 @@ public class ProventosActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Usuario usuario = dataSnapshot.getValue( Usuario.class );
-                receitaTotal = usuario.getReceitaTotal();
+                proventosTotal = usuario.getProventosTotal();
             }
 
             @Override
@@ -131,13 +131,13 @@ public class ProventosActivity extends AppCompatActivity {
 
     }
 
-    public void atualizarReceita(Double receita) {
+    public void atualizarProventos(Double proventos) {
 
         String emailUsuario = autenticacao.getCurrentUser().getEmail();
         String idUsuario = Base64Custom.codificarBase64(emailUsuario);
         DatabaseReference usuarioRef = firebaseRef.child("usuarios").child(idUsuario);
 
-        usuarioRef.child("receitaTotal").setValue(receita);
+        usuarioRef.child("proventosTotal").setValue(proventos);
 
     }
 

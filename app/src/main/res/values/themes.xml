@@ -13,17 +13,17 @@
         <item name="colorAccent">@color/colorAccentDespesa</item>
     </style>
 
-    <!-- Tema nas receitas !-->
-    <style name="receitaTheme" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimaryReceita</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDarkReceita</item>
-        <item name="colorAccent">@color/colorAccentReceita</item>
+    <!-- Tema nas proventoss !-->
+    <style name="proventosTheme" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimaryProventos</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkProventos</item>
+        <item name="colorAccent">@color/colorAccentProventos</item>
     </style>
 
     <!-- Tema action bar-->
     <style name="principalTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="backgroundColor">@color/colorPrimary</item>
-        <item name="colorPrimary">@color/colorPrimaryReceita</item>
+        <item name="colorPrimary">@color/colorPrimaryProventos</item>
     </style>
 
 

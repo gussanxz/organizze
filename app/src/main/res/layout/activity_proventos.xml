@@ -11,7 +11,7 @@
         android:id="@+id/input"
         android:layout_width="0dp"
         android:layout_height="120dp"
-        android:background="@color/colorPrimaryReceita"
+        android:background="@color/colorPrimaryProventos"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="10dp"
@@ -99,12 +99,12 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
         android:clickable="true"
-        app:backgroundTint="@color/colorAccentReceita"
+        app:backgroundTint="@color/colorAccentProventos"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_confirmar_branco_24"
-        android:onClick="salvarReceita"/>
+        android:onClick="salvarProventos"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -43,7 +43,7 @@ public class PrincipalActivity extends AppCompatActivity {
     private MaterialCalendarView calendarView;
     private TextView textoSaudacao, textoSaldo;
     private Double despesaTotal = 0.0;
-    private Double receitaTotal = 0.0;
+    private Double proventosTotal = 0.0;
     private Double resumoUsuario = 0.0;
     private FirebaseAuth autenticacao  = ConfiguracaoFirebase.getFirebaseAutenticacao();
     private DatabaseReference firebaseRef = ConfiguracaoFirebase.getFirebaseDatabase();
@@ -156,8 +156,8 @@ public class PrincipalActivity extends AppCompatActivity {
         usuarioRef = firebaseRef.child("usuarios").child(idUsuario);
 
         if (movimentacao.getTipo().equals("r")){
-            receitaTotal = receitaTotal - movimentacao.getValor();
-            usuarioRef.child("receitaTotal").setValue(receitaTotal);
+            proventosTotal = proventosTotal - movimentacao.getValor();
+            usuarioRef.child("proventosTotal").setValue(proventosTotal);
         }
         if (movimentacao.getTipo().equals("d")){
             despesaTotal = despesaTotal - movimentacao.getValor();
@@ -216,8 +216,8 @@ public class PrincipalActivity extends AppCompatActivity {
                 Usuario usuario = snapshot.getValue( Usuario.class );
 
                 despesaTotal = usuario.getDespesaTotal();
-                receitaTotal = usuario.getReceitaTotal();
-                resumoUsuario = receitaTotal - despesaTotal;
+                proventosTotal = usuario.getProventosTotal();
+                resumoUsuario = proventosTotal - despesaTotal;
 
                 DecimalFormat decimalFormat = new DecimalFormat("0.##");
                 String resultadoFormatado = decimalFormat.format( resumoUsuario );
@@ -260,8 +260,8 @@ public class PrincipalActivity extends AppCompatActivity {
         startActivity(new Intent(this, VendasActivity.class));
     }
 
-    public void adicionarReceita(View view){
-        startActivity(new Intent(this, ReceitasActivity.class));
+    public void adicionarProventos(View view){
+        startActivity(new Intent(this, ProventosActivity.class));
     }
 
     public void adicionarDespesa(View view){

@@ -45,8 +45,8 @@
             android:layout_height="wrap_content"
             android:onClick="cadastroCliente"
             android:src="@drawable/ic_adicionar_branco_24"
-            app:fab_colorPressed="@color/colorPrimaryDarkReceita"
-            fab:fab_colorNormal="@color/colorPrimaryReceita"
+            app:fab_colorPressed="@color/colorPrimaryDarkProventos"
+            fab:fab_colorNormal="@color/colorPrimaryProventos"
             fab:fab_label="Cadastrar cliente"
             fab:fab_size="mini" />
 
@@ -56,8 +56,8 @@
             android:layout_height="wrap_content"
             android:onClick="novaVenda"
             android:src="@drawable/ic_adicionar_branco_24"
-            app:fab_colorPressed="@color/colorPrimaryDarkReceita"
-            fab:fab_colorNormal="@color/colorPrimaryReceita"
+            app:fab_colorPressed="@color/colorPrimaryDarkProventos"
+            fab:fab_colorNormal="@color/colorPrimaryProventos"
             fab:fab_label="Registrar Venda"
             fab:fab_size="mini" />
 
@@ -73,14 +73,14 @@
             fab:fab_size="mini" />
 
         <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/menu_receita"
+            android:id="@+id/menu_proventos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="adicionarReceita"
+            android:onClick="adicionarProventos"
             android:src="@drawable/ic_adicionar_branco_24"
-            app:fab_colorPressed="@color/colorPrimaryDarkReceita"
-            fab:fab_colorNormal="@color/colorPrimaryReceita"
-            fab:fab_label="Receita"
+            app:fab_colorPressed="@color/colorPrimaryDarkProventos"
+            fab:fab_colorNormal="@color/colorPrimaryProventos"
+            fab:fab_label="Proventos"
             fab:fab_size="mini" />
 
     </com.github.clans.fab.FloatingActionMenu>

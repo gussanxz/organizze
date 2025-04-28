@@ -10,7 +10,7 @@ public class Usuario {
     private String nome;
     private String email;
     private String senha;
-    private Double receitaTotal = 0.00;
+    private Double proventosTotal = 0.00;
     private Double despesaTotal = 0.00;
 
     public Usuario() {
@@ -23,12 +23,12 @@ public class Usuario {
                 .setValue(this);
     }
 
-    public Double getReceitaTotal() {
-        return receitaTotal;
+    public Double getProventosTotal() {
+        return proventosTotal;
     }
 
-    public void setReceitaTotal(Double receitaTotal) {
-        this.receitaTotal = receitaTotal;
+    public void setProventosTotal(Double proventosTotal) {
+        this.proventosTotal = proventosTotal;
     }
 
     public Double getDespesaTotal() {

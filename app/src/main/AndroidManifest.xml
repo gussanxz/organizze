@@ -26,9 +26,9 @@
             android:exported="false"
             android:theme="@style/despesaTheme" />
         <activity
-            android:name=".activity.ReceitasActivity"
+            android:name=".activity.ProventosActivity"
             android:exported="false"
-            android:theme="@style/receitaTheme" />
+            android:theme="@style/proventosTheme" />
         <activity
             android:name=".activity.PrincipalActivity"
             android:exported="false"
