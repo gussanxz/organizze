@@ -1,7 +1,10 @@
 package com.gussanxz.organizze.model;
 
+import static android.content.ContentValues.TAG;
+
 import android.app.DatePickerDialog;
 import android.content.Context;
+import android.util.Log;
 import android.widget.DatePicker;
 import android.widget.EditText;
 
@@ -10,6 +13,8 @@ import java.util.Calendar;
 import java.util.Locale;
 
 public class DatePickerHelper {
+    private static final String TAG  =  "DatePickerHelper";
+    public static String mesAnoDataEscolhida = "";
 
     public static void showDatePickerDialog(Context context, final EditText editText) {
         // Obtem a data atual
@@ -25,7 +30,18 @@ public class DatePickerHelper {
                         calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 
                         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
-                        editText.setText(sdf.format(calendar.getTime()));
+                        String dataSelecionada = sdf.format(calendar.getTime());
+
+                        editText.setText(dataSelecionada);
+
+                        // Agora extraímos mês e ano
+                        String[] dataSeparada = dataSelecionada.split("/");
+                        String mes = dataSeparada[1]; // mês
+                        String ano = dataSeparada[2]; // ano
+
+                        String mesAnoDataEscolhida = mes + ano; // Ex: 04 + 2025 = "042025"
+
+                        Log.i(TAG, "mesAno: " + mesAnoDataEscolhida);
                     }
                 },
                 calendar.get(Calendar.YEAR),
@@ -34,5 +50,16 @@ public class DatePickerHelper {
         );
 
         datePickerDialog.show();
+    }
+    public static String mesAnoDataEscolhida( String data ) {
+
+        String retornoData[] = data.split("/"); //ex: 23/01/2018
+        String dia = retornoData[0]; //dia 23
+        String mes = retornoData[1]; //mes 01
+        String ano = retornoData[2]; //ano 2018
+        Log.i(TAG, "Data informada: " + mes + "/" + ano );
+        String mesAno = mes + ano;
+        return  mesAno;
+
     }
 }
