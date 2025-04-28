@@ -19,6 +19,7 @@ import com.gussanxz.organizze.helper.Base64Custom;
 import com.gussanxz.organizze.helper.DateCustom;
 import com.gussanxz.organizze.model.Movimentacao;
 import com.gussanxz.organizze.model.Usuario;
+import com.gussanxz.organizze.model.DatePickerHelper;
 
 public class DespesasActivity extends AppCompatActivity {
 
@@ -40,8 +41,18 @@ public class DespesasActivity extends AppCompatActivity {
         campoCategoria = findViewById(R.id.editCategoria);
         campoDescricao = findViewById(R.id.editDescricao);
 
-        //Prenche o campo data com a data atual
-        campoData.setText(DateCustom.dataAtual());
+        TextInputEditText TextInputDate = findViewById(R.id.editData);
+
+        TextInputDate.setFocusable(false);
+        TextInputDate.setClickable(true);
+
+        TextInputDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatePickerHelper.showDatePickerDialog(DespesasActivity.this, TextInputDate);
+            }
+        });
+
         recuperarDespesaTotal();
 
     }
