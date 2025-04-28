@@ -1,12 +1,9 @@
 package com.gussanxz.organizze.model;
 
-import static com.gussanxz.organizze.model.DatePickerHelper.mesAnoDataEscolhida;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.gussanxz.organizze.config.ConfiguracaoFirebase;
 import com.gussanxz.organizze.helper.Base64Custom;
-import com.gussanxz.organizze.helper.DateCustom;
 
 public class Movimentacao {
 
