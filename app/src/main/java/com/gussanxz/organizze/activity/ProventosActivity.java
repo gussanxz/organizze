@@ -19,7 +19,7 @@ import com.gussanxz.organizze.helper.DateCustom;
 import com.gussanxz.organizze.model.Movimentacao;
 import com.gussanxz.organizze.model.Usuario;
 
-public class ReceitasActivity extends AppCompatActivity {
+public class ProventosActivity extends AppCompatActivity {
 
     private TextInputEditText campoData, campoCategoria, campoDescricao;
     private EditText campoValor;
@@ -47,7 +47,7 @@ public class ReceitasActivity extends AppCompatActivity {
 
     public void salvarReceita(View view) {
 
-        if (validarCamposReceitas()) {
+        if (validarCamposProventos()) {
 
             movimentacao = new Movimentacao();
             String data = campoData.getText().toString();
@@ -69,7 +69,7 @@ public class ReceitasActivity extends AppCompatActivity {
         }
     }
 
-    public Boolean validarCamposReceitas() {
+    public Boolean validarCamposProventos() {
 
         String textoValor = campoValor.getText().toString();
         String textoData = campoData.getText().toString();
@@ -84,25 +84,25 @@ public class ReceitasActivity extends AppCompatActivity {
                         return true;
 
                     }else {
-                        Toast.makeText(ReceitasActivity.this,
+                        Toast.makeText(ProventosActivity.this,
                                 "Descrição não foi preenchida!", Toast.LENGTH_SHORT).show();
                         return false;
 
                     }
                 }else {
-                    Toast.makeText(ReceitasActivity.this,
+                    Toast.makeText(ProventosActivity.this,
                             "Categoria não foi preenchida!", Toast.LENGTH_SHORT).show();
                     return false;
                 }
             }else {
-                Toast.makeText(ReceitasActivity.this,
+                Toast.makeText(ProventosActivity.this,
                         "Data não foi preenchida!", Toast.LENGTH_SHORT).show();
                 return false;
 
             }
 
         }else {
-            Toast.makeText(ReceitasActivity.this,
+            Toast.makeText(ProventosActivity.this,
                     "Valor não foi preenchido!", Toast.LENGTH_SHORT).show();
             return false;
 
