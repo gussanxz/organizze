@@ -16,7 +16,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.gussanxz.organizze.R;
 import com.gussanxz.organizze.config.ConfiguracaoFirebase;
 import com.gussanxz.organizze.helper.Base64Custom;
-import com.gussanxz.organizze.helper.DateCustom;
+import com.gussanxz.organizze.model.DatePickerHelper;
 import com.gussanxz.organizze.model.Movimentacao;
 import com.gussanxz.organizze.model.Usuario;
 
@@ -41,7 +41,18 @@ public class ProventosActivity extends AppCompatActivity {
         campoDescricao = findViewById(R.id.editDescricao);
 
         //Prenche o campo data com a data atual
-        campoData.setText(DateCustom.dataAtual());
+        TextInputEditText TextInputDate = findViewById(R.id.editData);
+
+        TextInputDate.setFocusable(false);
+        TextInputDate.setClickable(true);
+
+        TextInputDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatePickerHelper.showDatePickerDialog(ProventosActivity.this, TextInputDate);
+            }
+        });
+
         recuperarProventosTotal();
 
     }

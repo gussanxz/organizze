@@ -1,5 +1,7 @@
 package com.gussanxz.organizze.model;
 
+import static com.gussanxz.organizze.model.DatePickerHelper.mesAnoDataEscolhida;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.gussanxz.organizze.config.ConfiguracaoFirebase;
@@ -22,7 +24,7 @@ public class Movimentacao {
 
         FirebaseAuth autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
         String idUsuario = Base64Custom.codificarBase64( autenticacao.getCurrentUser().getEmail() );
-        String mesAno = DateCustom.mesAnoDataEscolhida( dataEscolhida );
+        String mesAno = DatePickerHelper.mesAnoDataEscolhida(dataEscolhida);
         DatabaseReference firebase = ConfiguracaoFirebase.getFirebaseDatabase();
         firebase.child( "movimentacao" )
                 .child( idUsuario )

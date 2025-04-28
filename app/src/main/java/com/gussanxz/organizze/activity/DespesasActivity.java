@@ -16,7 +16,6 @@ import com.google.firebase.database.ValueEventListener;
 import com.gussanxz.organizze.R;
 import com.gussanxz.organizze.config.ConfiguracaoFirebase;
 import com.gussanxz.organizze.helper.Base64Custom;
-import com.gussanxz.organizze.helper.DateCustom;
 import com.gussanxz.organizze.model.Movimentacao;
 import com.gussanxz.organizze.model.Usuario;
 import com.gussanxz.organizze.model.DatePickerHelper;
