@@ -1,7 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.Organizze" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="calendarTheme" parent="Base.Theme.Organizze">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="mcv_arrowColor">@color/white</item>
     </style>
 </resources>

@@ -46,6 +46,7 @@
         android:layout_height="50dp"
         app:mcv_selectionColor="#00F"
         app:mcv_showOtherDates="all"
+        style="@style/calendarTheme"
         app:mcv_tileSize="50dp"/>
 
     <androidx.recyclerview.widget.RecyclerView
