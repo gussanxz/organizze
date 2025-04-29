@@ -63,6 +63,8 @@ public class Movimentacao {
         this.descricao = descricao;
     }
 
+
+
     public String getTipo() {
         return tipo;
     }
