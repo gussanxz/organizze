@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="5"
                 android:text="Titulo"
-                android:textColor="@android:color/black"
+                android:textColor="?attr/colorOnSurface"
                 android:textSize="16sp" />
 
             <TextView
@@ -39,15 +39,20 @@
 
         </LinearLayout>
 
-            <TextView
-                android:id="@+id/textAdapterCategoria"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="5"
-                android:text="Categoria"
-                android:textColor="#696969"
-                android:textSize="14sp" />
-
+        <TextView
+            android:id="@+id/textAdapterCategoria"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:text="Categoria"
+            android:textColor="?attr/colorOnSurface"
+            android:textSize="14sp" />
 
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?attr/colorOnSurface" />
+
 </androidx.cardview.widget.CardView>
