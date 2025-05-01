@@ -37,7 +37,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageViewContas" />
 
     <TextView
-        android:id="@+id/textViewStatus"
+        android:id="@+id/textViewStatusContas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Em teste"
@@ -68,10 +68,10 @@
         app:layout_constraintTop_toBottomOf="@+id/imageViewVendas" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/textViewStatusVendas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Em teste"
+        android:text="Em desenvolvimento"
         app:layout_constraintEnd_toEndOf="@+id/textViewVendas"
         app:layout_constraintStart_toStartOf="@+id/textViewVendas"
         app:layout_constraintTop_toBottomOf="@+id/textViewVendas" />
@@ -96,7 +96,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageViewMercado" />
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/textViewStatusTodo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Em desenvolvimento"
@@ -106,7 +106,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewAtividades" />
 
     <TextView
-        android:id="@+id/textView18"
+        android:id="@+id/textViewStatusConfigs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Em desenvolvimento"
@@ -115,7 +115,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewConfigs" />
 
     <TextView
-        android:id="@+id/textView19"
+        android:id="@+id/textViewStatusBoletoCPF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Em desenvolvimento"
@@ -124,13 +124,13 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewBoletoCPF" />
 
     <TextView
-        android:id="@+id/textView15"
+        android:id="@+id/textViewStatusMercado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Em desenvolvimento"
         app:layout_constraintEnd_toEndOf="@+id/textViewMercado"
         app:layout_constraintStart_toStartOf="@+id/textViewMercado"
-        app:layout_constraintTop_toBottomOf="@+id/textViewAtividades" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewMercado" />
 
     <ImageView
         android:id="@+id/imageViewTodo"
