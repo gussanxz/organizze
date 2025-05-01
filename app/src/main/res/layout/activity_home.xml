@@ -36,6 +36,15 @@
         app:layout_constraintStart_toStartOf="@+id/imageViewContas"
         app:layout_constraintTop_toBottomOf="@+id/imageViewContas" />
 
+    <TextView
+        android:id="@+id/textViewStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Em teste"
+        app:layout_constraintEnd_toEndOf="@+id/textViewContas"
+        app:layout_constraintStart_toStartOf="@+id/textViewContas"
+        app:layout_constraintTop_toBottomOf="@+id/textViewContas" />
+
     <ImageView
         android:id="@+id/imageViewVendas"
         android:layout_width="wrap_content"
@@ -58,6 +67,15 @@
         app:layout_constraintStart_toStartOf="@+id/imageViewVendas"
         app:layout_constraintTop_toBottomOf="@+id/imageViewVendas" />
 
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Em teste"
+        app:layout_constraintEnd_toEndOf="@+id/textViewVendas"
+        app:layout_constraintStart_toStartOf="@+id/textViewVendas"
+        app:layout_constraintTop_toBottomOf="@+id/textViewVendas" />
+
     <ImageView
         android:id="@+id/imageViewMercado"
         android:layout_width="wrap_content"
@@ -76,6 +94,43 @@
         app:layout_constraintEnd_toEndOf="@+id/imageViewMercado"
         app:layout_constraintStart_toStartOf="@+id/imageViewMercado"
         app:layout_constraintTop_toBottomOf="@+id/imageViewMercado" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Em desenvolvimento"
+        app:layout_constraintEnd_toEndOf="@+id/textViewAtividades"
+        app:layout_constraintHorizontal_bias="0.35"
+        app:layout_constraintStart_toStartOf="@+id/textViewAtividades"
+        app:layout_constraintTop_toBottomOf="@+id/textViewAtividades" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Em desenvolvimento"
+        app:layout_constraintEnd_toEndOf="@+id/textViewConfigs"
+        app:layout_constraintStart_toStartOf="@+id/textViewConfigs"
+        app:layout_constraintTop_toBottomOf="@+id/textViewConfigs" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Em desenvolvimento"
+        app:layout_constraintEnd_toEndOf="@+id/textViewBoletoCPF"
+        app:layout_constraintStart_toStartOf="@+id/textViewBoletoCPF"
+        app:layout_constraintTop_toBottomOf="@+id/textViewBoletoCPF" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Em desenvolvimento"
+        app:layout_constraintEnd_toEndOf="@+id/textViewMercado"
+        app:layout_constraintStart_toStartOf="@+id/textViewMercado"
+        app:layout_constraintTop_toBottomOf="@+id/textViewAtividades" />
 
     <ImageView
         android:id="@+id/imageViewTodo"
