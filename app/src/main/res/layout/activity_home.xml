@@ -7,134 +7,134 @@
     android:layout_height="match_parent"
     tools:context=".activity.HomeActivity">
 
-    <TextView
-        android:id="@+id/textViewConfigs"
+    <ImageView
+        android:id="@+id/imageViewLogoHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Minha Conta"
-        app:layout_constraintEnd_toEndOf="@+id/imageView11"
-        app:layout_constraintStart_toStartOf="@+id/imageView11"
-        app:layout_constraintTop_toBottomOf="@+id/imageView11" />
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_orgafacil_96x96" />
 
-    <TextView
-        android:id="@+id/textViewAtividades"
+    <ImageView
+        android:id="@+id/imageViewContas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Lista atividades"
-        app:layout_constraintEnd_toEndOf="@+id/imageView7"
-        app:layout_constraintStart_toStartOf="@+id/imageView7"
-        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
-
-    <TextView
-        android:id="@+id/textViewMercado"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Lista Mercado"
-        app:layout_constraintEnd_toEndOf="@+id/imageView8"
-        app:layout_constraintStart_toStartOf="@+id/imageView8"
-        app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+        app:layout_constraintEnd_toStartOf="@+id/imageViewVendas"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageViewVendas"
+        app:srcCompat="@drawable/ic_wallet_96" />
 
     <TextView
         android:id="@+id/textViewContas"
         android:layout_width="wrap_content"
         android:layout_height="19dp"
         android:text="Contas"
-        app:layout_constraintEnd_toEndOf="@+id/imageView5"
-        app:layout_constraintStart_toStartOf="@+id/imageView5"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+        app:layout_constraintEnd_toEndOf="@+id/imageViewContas"
+        app:layout_constraintStart_toStartOf="@+id/imageViewContas"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewContas" />
+
+    <ImageView
+        android:id="@+id/imageViewVendas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="64dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageViewTodo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageViewContas"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:srcCompat="@drawable/ic_sale_96" />
 
     <TextView
         android:id="@+id/textViewVendas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Vendas"
-        app:layout_constraintEnd_toEndOf="@+id/imageView6"
-        app:layout_constraintStart_toStartOf="@+id/imageView6"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+        app:layout_constraintEnd_toEndOf="@+id/imageViewVendas"
+        app:layout_constraintStart_toStartOf="@+id/imageViewVendas"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewVendas" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/imageViewMercado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toStartOf="@+id/imageView6"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewTodo"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView6"
-        app:srcCompat="@drawable/ic_wallet_96" />
-
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="64dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageView5"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed"
-        app:srcCompat="@drawable/ic_sale_96" />
-
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="64dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView11"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageView8"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6"
-        app:srcCompat="@drawable/ic_checklist_96" />
-
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toStartOf="@+id/imageView7"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView7"
+        app:layout_constraintTop_toTopOf="@+id/imageViewTodo"
         app:srcCompat="@drawable/ic_shopping_cart_96" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/textViewMercado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lista Mercado"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewMercado"
+        app:layout_constraintStart_toStartOf="@+id/imageViewMercado"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewMercado" />
+
+    <ImageView
+        android:id="@+id/imageViewTodo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="64dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageViewConfigs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageViewMercado"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewVendas"
+        app:srcCompat="@drawable/ic_checklist_96" />
+
+    <TextView
+        android:id="@+id/textViewAtividades"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lista atividades"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewTodo"
+        app:layout_constraintStart_toStartOf="@+id/imageViewTodo"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewTodo" />
+
+    <ImageView
+        android:id="@+id/imageViewBoletoCPF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewConfigs"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageViewConfigs"
+        app:srcCompat="@drawable/ic_barcode_96" />
+
+    <TextView
+        android:id="@+id/textViewBoletoCPF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Boleto por CPF"
-        app:layout_constraintEnd_toEndOf="@+id/imageView9"
-        app:layout_constraintStart_toStartOf="@+id/imageView9"
-        app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+        app:layout_constraintEnd_toEndOf="@+id/imageViewBoletoCPF"
+        app:layout_constraintStart_toStartOf="@+id/imageViewBoletoCPF"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewBoletoCPF" />
 
     <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toStartOf="@+id/imageView11"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView11"
-        app:srcCompat="@drawable/ic_barcode_96" />
-
-    <ImageView
-        android:id="@+id/imageView11"
+        android:id="@+id/imageViewConfigs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageView9"
-        app:layout_constraintTop_toBottomOf="@+id/imageView7"
+        app:layout_constraintStart_toEndOf="@+id/imageViewBoletoCPF"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewTodo"
         app:srcCompat="@drawable/ic_manage_accounts_96" />
 
-    <ImageView
-        android:id="@+id/imageView3"
+    <TextView
+        android:id="@+id/textViewConfigs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo_orgafacil_96x96" />
+        android:text="Minha Conta"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewConfigs"
+        app:layout_constraintStart_toStartOf="@+id/imageViewConfigs"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewConfigs" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
