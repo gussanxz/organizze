@@ -82,7 +82,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 if ( task.isSuccessful() ) {
 
-                    abrirTelaPrincipal();
+                    abrirTelaHome();
                     
                 }else {
 
@@ -104,8 +104,8 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    public void abrirTelaPrincipal() {
-        startActivity(new Intent(this, PrincipalActivity.class));
+    public void abrirTelaHome() {
+        startActivity(new Intent(this, HomeActivity.class));
         finish();
     }
 

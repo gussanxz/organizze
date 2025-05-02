@@ -108,7 +108,7 @@ public class CadastroActivity extends AppCompatActivity {
                     String idUsuario = Base64Custom.codificarBase64( usuario.getEmail());
                     usuario.setIdUsuario( idUsuario );
                     usuario.salvar();
-                    abrirTelaPrincipal();
+                    abrirTelaHome();
 
                 }else {
 
@@ -132,8 +132,8 @@ public class CadastroActivity extends AppCompatActivity {
     }
 
 
-    public void abrirTelaPrincipal() {
-        startActivity(new Intent(this, PrincipalActivity.class));
+    public void abrirTelaHome() {
+        startActivity(new Intent(this, HomeActivity.class));
         finish();
     }
 
