@@ -99,34 +99,6 @@
         app:layout_constraintTop_toBottomOf="@+id/imageViewMercado" />
 
     <TextView
-        android:id="@+id/textViewStatusTodo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Em desenvolvimento"
-        app:layout_constraintEnd_toEndOf="@+id/textViewAtividades"
-        app:layout_constraintHorizontal_bias="0.35"
-        app:layout_constraintStart_toStartOf="@+id/textViewAtividades"
-        app:layout_constraintTop_toBottomOf="@+id/textViewAtividades" />
-
-    <TextView
-        android:id="@+id/textViewStatusConfigs"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Em desenvolvimento"
-        app:layout_constraintEnd_toEndOf="@+id/textViewConfigs"
-        app:layout_constraintStart_toStartOf="@+id/textViewConfigs"
-        app:layout_constraintTop_toBottomOf="@+id/textViewConfigs" />
-
-    <TextView
-        android:id="@+id/textViewStatusBoletoCPF"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Em desenvolvimento"
-        app:layout_constraintEnd_toEndOf="@+id/textViewBoletoCPF"
-        app:layout_constraintStart_toStartOf="@+id/textViewBoletoCPF"
-        app:layout_constraintTop_toBottomOf="@+id/textViewBoletoCPF" />
-
-    <TextView
         android:id="@+id/textViewStatusMercado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -156,6 +128,16 @@
         app:layout_constraintStart_toStartOf="@+id/imageViewTodo"
         app:layout_constraintTop_toBottomOf="@+id/imageViewTodo" />
 
+    <TextView
+        android:id="@+id/textViewStatusTodo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Em desenvolvimento"
+        app:layout_constraintEnd_toEndOf="@+id/textViewAtividades"
+        app:layout_constraintHorizontal_bias="0.35"
+        app:layout_constraintStart_toStartOf="@+id/textViewAtividades"
+        app:layout_constraintTop_toBottomOf="@+id/textViewAtividades" />
+
     <ImageView
         android:id="@+id/imageViewBoletoCPF"
         android:layout_width="wrap_content"
@@ -174,6 +156,15 @@
         app:layout_constraintEnd_toEndOf="@+id/imageViewBoletoCPF"
         app:layout_constraintStart_toStartOf="@+id/imageViewBoletoCPF"
         app:layout_constraintTop_toBottomOf="@+id/imageViewBoletoCPF" />
+
+    <TextView
+        android:id="@+id/textViewStatusBoletoCPF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Em desenvolvimento"
+        app:layout_constraintEnd_toEndOf="@+id/textViewBoletoCPF"
+        app:layout_constraintStart_toStartOf="@+id/textViewBoletoCPF"
+        app:layout_constraintTop_toBottomOf="@+id/textViewBoletoCPF" />
 
     <ImageView
         android:id="@+id/imageViewConfigs"
@@ -194,5 +185,14 @@
         app:layout_constraintEnd_toEndOf="@+id/imageViewConfigs"
         app:layout_constraintStart_toStartOf="@+id/imageViewConfigs"
         app:layout_constraintTop_toBottomOf="@+id/imageViewConfigs" />
+
+    <TextView
+        android:id="@+id/textViewStatusConfigs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Em desenvolvimento"
+        app:layout_constraintEnd_toEndOf="@+id/textViewConfigs"
+        app:layout_constraintStart_toStartOf="@+id/textViewConfigs"
+        app:layout_constraintTop_toBottomOf="@+id/textViewConfigs" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
