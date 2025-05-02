@@ -1,6 +1,9 @@
 package com.gussanxz.organizze.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -32,5 +35,10 @@ public class HomeActivity extends AppCompatActivity {
         textoAtividades = findViewById(R.id.textViewAtividades);
         textoConfigs = findViewById(R.id.textViewConfigs);
 
+    }
+
+    public void acessarPrincipalActivity(View view) {
+        startActivity(new Intent(this, PrincipalActivity.class));
+        Log.i("HomeActivity", "acessou PrincipalActivity");
     }
 }
