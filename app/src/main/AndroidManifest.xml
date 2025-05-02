@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Organizze"
         tools:targetApi="31">
         <activity
+            android:name=".activity.ConfigsActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.BoletosActivity"
             android:exported="false" />
         <activity

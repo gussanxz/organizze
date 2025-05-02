@@ -174,7 +174,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        android:onClick="acessarConfigs"
         app:layout_constraintStart_toEndOf="@+id/imageViewBoletoCPF"
         app:layout_constraintTop_toBottomOf="@+id/imageViewTodo"
         app:srcCompat="@drawable/ic_manage_accounts_96" />

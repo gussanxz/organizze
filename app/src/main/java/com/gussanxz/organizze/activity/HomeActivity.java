@@ -62,4 +62,9 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(new Intent(this, BoletosActivity.class));
         Log.i(TAG, "acessou BoletosActivity");
     }
+
+    public void acessarConfigs(View view) {
+        startActivity(new Intent(this, ConfigsActivity.class));
+        Log.i(TAG, "acessou ConfigsActivity");
+    }
 }
