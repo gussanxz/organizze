@@ -1,7 +1,6 @@
 package com.gussanxz.organizze.activity;
 
 import android.content.Intent;
-import android.nfc.Tag;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,7 +13,6 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.gussanxz.organizze.R;
-import com.gussanxz.organizze.ResumoListaMercadoActivity;
 
 public class HomeActivity extends AppCompatActivity {
     private static final String TAG = "HomeActivity";
@@ -58,5 +56,10 @@ public class HomeActivity extends AppCompatActivity {
     public void acessarListaAtividades(View view) {
         startActivity(new Intent(this, ListaAtividadesActivity.class));
         Log.i(TAG, "acessou ListaAtividadesActivity");
+    }
+
+    public void acessarBoletos(View view) {
+        startActivity(new Intent(this, BoletosActivity.class));
+        Log.i(TAG, "acessou BoletosActivity");
     }
 }
