@@ -15,6 +15,7 @@ import androidx.core.view.WindowInsetsCompat;
 import com.gussanxz.organizze.R;
 
 public class HomeActivity extends AppCompatActivity {
+    private String TAG = "HomeActivity";
 
     private TextView textoContas, textoVendas, textoMercado, textoAtividades, textoConfigs;
 
@@ -40,5 +41,10 @@ public class HomeActivity extends AppCompatActivity {
     public void acessarPrincipalActivity(View view) {
         startActivity(new Intent(this, PrincipalActivity.class));
         Log.i("HomeActivity", "acessou PrincipalActivity");
+    }
+
+    public void acessarResumoVendasAcitivity(View view) {
+        startActivity(new Intent(this, ResumoVendasActivity.class));
+        Log.i("HomeActivity", "acessou ResumoVendasActivity");
     }
 }

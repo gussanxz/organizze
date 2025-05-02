@@ -53,6 +53,7 @@
         android:layout_marginBottom="64dp"
         app:layout_constraintBottom_toTopOf="@+id/imageViewTodo"
         app:layout_constraintEnd_toEndOf="parent"
+        android:onClick="acessarResumoVendasAcitivity"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/imageViewContas"
         app:layout_constraintTop_toTopOf="parent"
