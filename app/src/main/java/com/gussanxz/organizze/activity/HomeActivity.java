@@ -54,4 +54,9 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(new Intent(this, ResumoListaMercadoActivity.class));
         Log.i(TAG, "acessou ResumoListaMercadoActivity");
     }
+
+    public void acessarListaAtividades(View view) {
+        startActivity(new Intent(this, ListaAtividadesActivity.class));
+        Log.i(TAG, "acessou ListaAtividadesActivity");
+    }
 }
