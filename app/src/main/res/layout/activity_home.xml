@@ -85,6 +85,7 @@
         app:layout_constraintEnd_toStartOf="@+id/imageViewTodo"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
+        android:onClick="acessarResumoListaMercado"
         app:layout_constraintTop_toTopOf="@+id/imageViewTodo"
         app:srcCompat="@drawable/ic_shopping_cart_96" />
 
