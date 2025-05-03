@@ -1,5 +1,6 @@
 package com.gussanxz.organizze.activity.vendas;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -7,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import android.view.View;
 import android.widget.TextView;
 
 import com.gussanxz.organizze.R;
@@ -46,4 +49,13 @@ public class ResumoVendasActivity extends AppCompatActivity {
         textDataPagamento.setText("08/02/2025");
         textValorPagamento.setText("R$ 50,00");
     }
+
+    public void cadastroCliente(View view){
+        startActivity(new Intent(this, CadastroClienteActivity.class));
+    }
+
+    public void novaVenda(View view){
+        startActivity(new Intent(this, VendasActivity.class));
+    }
+
 }
