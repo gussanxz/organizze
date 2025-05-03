@@ -1,4 +1,4 @@
-package com.gussanxz.organizze.activity;
+package com.gussanxz.organizze.activity.contas;
 
 import android.content.Intent;
 import android.os.Bundle;

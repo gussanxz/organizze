@@ -1,4 +1,4 @@
-package com.gussanxz.organizze.activity;
+package com.gussanxz.organizze.activity.contas;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -25,6 +25,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 import com.gussanxz.organizze.R;
+import com.gussanxz.organizze.activity.vendas.CadastroClienteActivity;
+import com.gussanxz.organizze.activity.LoginActivity;
+import com.gussanxz.organizze.activity.MainActivity;
+import com.gussanxz.organizze.activity.vendas.VendasActivity;
 import com.gussanxz.organizze.adapter.AdapterMovimentacao;
 import com.gussanxz.organizze.config.ConfiguracaoFirebase;
 import com.gussanxz.organizze.helper.Base64Custom;

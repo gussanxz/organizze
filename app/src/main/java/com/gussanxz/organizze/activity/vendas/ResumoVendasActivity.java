@@ -1,4 +1,4 @@
-package com.gussanxz.organizze.activity;
+package com.gussanxz.organizze.activity.vendas;
 
 import android.os.Bundle;
 

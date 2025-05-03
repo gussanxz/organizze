@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/softGreen"
-    tools:context=".activity.VendasActivity">
+    tools:context=".activity.vendas.VendasActivity">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -48,7 +48,7 @@
         android:layout_marginTop="70dp"
         android:background="@drawable/header_background"
         app:layout_constraintTop_toTopOf="parent"
-        tools:context=".activity.VendasActivity">
+        tools:context=".activity.vendas.VendasActivity">
 
         <TextView
             android:id="@+id/textSelecioneCliente"

@@ -13,6 +13,12 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.gussanxz.organizze.R;
+import com.gussanxz.organizze.activity.boletos.BoletosActivity;
+import com.gussanxz.organizze.activity.configuracoes.ConfigsActivity;
+import com.gussanxz.organizze.activity.contas.PrincipalActivity;
+import com.gussanxz.organizze.activity.mercado.ResumoListaMercadoActivity;
+import com.gussanxz.organizze.activity.todo.ListaAtividadesActivity;
+import com.gussanxz.organizze.activity.vendas.ResumoVendasActivity;
 
 public class HomeActivity extends AppCompatActivity {
     private static final String TAG = "HomeActivity";

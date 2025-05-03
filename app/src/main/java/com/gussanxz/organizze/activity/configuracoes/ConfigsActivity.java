@@ -1,4 +1,4 @@
-package com.gussanxz.organizze.activity;
+package com.gussanxz.organizze.activity.configuracoes;
 
 import android.os.Bundle;
 

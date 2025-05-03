@@ -13,39 +13,39 @@
         android:theme="@style/Theme.Organizze"
         tools:targetApi="31">
         <activity
-            android:name=".activity.ConfigsActivity"
+            android:name=".activity.configuracoes.ConfigsActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.BoletosActivity"
+            android:name=".activity.boletos.BoletosActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.ListaAtividadesActivity"
+            android:name=".activity.todo.ListaAtividadesActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.ResumoListaMercadoActivity"
+            android:name=".activity.mercado.ResumoListaMercadoActivity"
             android:exported="false" />
         <activity
             android:name=".activity.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.CadastroClienteActivity"
+            android:name=".activity.vendas.CadastroClienteActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.ResumoVendasActivity"
+            android:name=".activity.vendas.ResumoVendasActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.VendasActivity"
+            android:name=".activity.vendas.VendasActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.DespesasActivity"
+            android:name=".activity.contas.DespesasActivity"
             android:exported="false"
             android:theme="@style/despesaTheme" />
         <activity
-            android:name=".activity.ProventosActivity"
+            android:name=".activity.contas.ProventosActivity"
             android:exported="false"
             android:theme="@style/proventosTheme" />
         <activity
-            android:name=".activity.PrincipalActivity"
+            android:name=".activity.contas.PrincipalActivity"
             android:exported="false"
             android:theme="@style/principalTheme" />
         <activity
