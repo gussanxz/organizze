@@ -1,6 +1,8 @@
 package com.gussanxz.organizze.activity.vendas;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,4 +25,13 @@ public class CadastroClienteActivity extends AppCompatActivity {
             return insets;
         });
     }
+
+    public void retornarResumoVendas(View view){
+        startActivity(new Intent(this, ResumoVendasActivity.class));
+    }
+
+    public void confirmarCadastroCliente(View view){
+
+    }
+
 }
