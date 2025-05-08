@@ -56,8 +56,6 @@ public class ResumoVendasActivity extends AppCompatActivity {
         btnVerPagamentos = findViewById(R.id.btnVerPagamentos);
 
         floatingActionMenu = findViewById(R.id.floatingActionMenu);
-        menuCadastroCliente = findViewById(R.id.menuCadastroCliente);
-        menuNovaVenda = findViewById(R.id.menuNovaVenda);
 
         // Simula dados de teste para visualização
         textValorPendente.setText("50,00");
@@ -92,10 +90,12 @@ public class ResumoVendasActivity extends AppCompatActivity {
     }
 
     public void cadastroCliente(View view){
+        floatingActionMenu.close(true);
         startActivity(new Intent(this, CadastroClienteActivity.class));
     }
 
     public void novaVenda(View view){
+        floatingActionMenu.close(true);
         startActivity(new Intent(this, VendasActivity.class));
     }
 
