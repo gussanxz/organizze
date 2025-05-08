@@ -10,14 +10,25 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
+import com.github.clans.fab.FloatingActionMenu;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.gussanxz.organizze.R;
 
 public class ResumoVendasActivity extends AppCompatActivity {
     private final String TAG = "ResumoVendasActivity";
     private TextView textValorPendente, textVendasPendentes, textVendasPagas,
-            textDataVenda, textValorVenda, textValorPendenteRestante, textDataPagamento, textValorPagamento;
+            textDataVenda, textValorVenda, textValorPendenteRestante, textDataPagamento, textValorPagamento,
+            textDescricaoVendaPaga, textValorTotalVendaPaga;
+    private Button btnVerVendas, btnVerPagamentos;
+    private FloatingActionMenu floatingActionMenu, menuCadastroCliente;
+    private FloatingActionButton menuNovaVenda;
+
+    private double valorPendenteTotalExemplo = 0.0;
+    private int qtdVendasPendentesExemplo = 0;
+    private int qtdVendasPagasExemplo = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +47,16 @@ public class ResumoVendasActivity extends AppCompatActivity {
         textDataVenda = findViewById(R.id.textDataVenda);
         textValorVenda = findViewById(R.id.textValorVenda);
         textValorPendenteRestante = findViewById(R.id.textValorPendenteRestante);
+        btnVerVendas = findViewById(R.id.btnVerVendas);
         textDataPagamento = findViewById(R.id.textDataPagamento);
+        textDescricaoVendaPaga = findViewById(R.id.textDescricaoVendaPaga);
+        textValorTotalVendaPaga = findViewById(R.id.textValorTotalVendaPaga);
         textValorPagamento = findViewById(R.id.textValorPagamento);
+        btnVerPagamentos = findViewById(R.id.btnVerPagamentos);
+
+        floatingActionMenu = findViewById(R.id.floatingActionMenu);
+        menuCadastroCliente = findViewById(R.id.menuCadastroCliente);
+        menuNovaVenda = findViewById(R.id.menuNovaVenda);
 
         // Simula dados de teste para visualização
         textValorPendente.setText("50,00");
