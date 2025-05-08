@@ -9,6 +9,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -67,6 +68,27 @@ public class ResumoVendasActivity extends AppCompatActivity {
         textValorPendenteRestante.setText("R$ 50,00");
         textDataPagamento.setText("08/02/2025");
         textValorPagamento.setText("R$ 50,00");
+
+        configurarListeners();
+    }
+
+    private void configurarListeners() {
+        if (btnVerVendas != null) {
+            btnVerVendas.setOnClickListener(v -> {
+                 Intent intent = new Intent(ResumoVendasActivity.this, ListaVendasActivity.class);
+                // intent.putExtra("filtro_status", "PENDENTE");
+                 startActivity(intent);
+                Log.i(TAG, "Botão Ver Vendas clicado");
+            });
+        }
+
+        if (btnVerPagamentos != null) {
+            btnVerPagamentos.setOnClickListener(v -> {
+                 Intent intent = new Intent(ResumoVendasActivity.this, ListaPagamentosActivity.class);
+                 startActivity(intent);
+                Log.i(TAG,"Botão Ver Pagamentos clicado");
+            });
+        }
     }
 
     public void cadastroCliente(View view){
