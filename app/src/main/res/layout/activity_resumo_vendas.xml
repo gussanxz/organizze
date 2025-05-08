@@ -237,6 +237,7 @@
                 </LinearLayout>
 
                 <Button
+                    android:id="@+id/btnVerVendas"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="8dp"
@@ -338,6 +339,7 @@
                 </LinearLayout>
 
                 <Button
+                    android:id="@+id/btnVerPagamentos"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="8dp"
@@ -362,7 +364,7 @@
         fab:menu_icon="@drawable/ic_adicionar_branco_24">
 
         <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/menu_resumo"
+            android:id="@+id/menuCadastroCliente"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="cadastroCliente"
@@ -373,7 +375,7 @@
             fab:fab_size="mini" />
 
         <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/menu_venda"
+            android:id="@+id/menuNovaVenda"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="novaVenda"
