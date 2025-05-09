@@ -36,9 +36,14 @@
                 android:layout_margin="8dp"/>
 
             <TextView
+                android:id="@+id/textViewTitulo"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"/>
+                android:layout_height="80dp"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:text="Cadastrar Cliente"
+                android:textSize="28sp"
+                android:textStyle="bold" />
 
             <com.github.clans.fab.FloatingActionButton
                 android:id="@+id/btnConfirmarCadastro"
@@ -53,15 +58,6 @@
                 android:layout_margin="8dp"/>
 
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/textViewTitulo"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:gravity="center"
-            android:text="Cadastrar Cliente"
-            android:textSize="28sp"
-            android:textStyle="bold" />
 
     </LinearLayout>
 
