@@ -88,23 +88,37 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="Por favor, informe o valor da venda:"
+            android:text="Por favor, informe sobre o CUSTO ou VALOR venda:"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/editTextDescricaoVenda" />
 
         <EditText
+            android:id="@+id/editTextCustoVenda"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="16dp"
+            android:ems="10"
+            android:hint="Custo"
+            android:inputType="text"
+            app:layout_constraintEnd_toStartOf="@+id/editTextValorVenda"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvValorVenda" />
+
+        <EditText
             android:id="@+id/editTextValorVenda"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="24dp"
+            android:layout_marginRight="24dp"
             android:ems="10"
             android:hint="Valor"
             android:inputType="text"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/editTextCustoVenda"
             app:layout_constraintTop_toBottomOf="@+id/tvValorVenda" />
 
         <TextView
@@ -128,7 +142,7 @@
             android:inputType="text"
             app:layout_constraintEnd_toStartOf="@+id/editTextJurosReal"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvJurosVenda" />
 
