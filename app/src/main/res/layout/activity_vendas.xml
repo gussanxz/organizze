@@ -83,12 +83,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/listSelecioneCliente" />
 
+        <TextView
+            android:id="@+id/tvValorVenda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Por favor, informe o valor da venda:"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editTextDescricaoVenda" />
+
         <EditText
             android:id="@+id/editTextValorVenda"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
             android:layout_marginEnd="24dp"
             android:ems="10"
             android:hint="Valor"
@@ -96,14 +105,23 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextDescricaoVenda" />
+            app:layout_constraintTop_toBottomOf="@+id/tvValorVenda" />
+
+        <TextView
+            android:id="@+id/tvJurosVenda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Por favor, informe um dos campos a baixo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editTextValorVenda" />
 
         <EditText
             android:id="@+id/editTextJurosPorcento"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:ems="10"
             android:hint="Juros %"
@@ -112,13 +130,12 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextValorVenda" />
+            app:layout_constraintTop_toBottomOf="@+id/tvJurosVenda" />
 
         <EditText
             android:id="@+id/editTextJurosReal"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:layout_marginEnd="24dp"
             android:ems="10"
             android:hint="Juros R$"
@@ -126,7 +143,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/editTextJurosPorcento"
-            app:layout_constraintTop_toBottomOf="@+id/editTextValorVenda" />
+            app:layout_constraintTop_toBottomOf="@+id/tvJurosVenda" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout5"
