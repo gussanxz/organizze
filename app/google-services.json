@@ -1,18 +1,24 @@
 {
   "project_info": {
     "project_number": "1087596331300",
-    "project_id": "orgafacil-gusdev",
-    "storage_bucket": "orgafacil-gusdev.firebasestorage.app"
+    "firebase_url": "https://organizze-gusdev-default-rtdb.firebaseio.com",
+    "project_id": "organizze-gusdev",
+    "storage_bucket": "organizze-gusdev.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1087596331300:android:c20d6645dfa9b12d3af3b1",
+        "mobilesdk_app_id": "1:1087596331300:android:5bebf6593deb4ccc3af3b1",
         "android_client_info": {
           "package_name": "com.gussanxz.orgafacil"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "1087596331300-4j35fef3mad1dtailhv55e0feno4m3kk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyDJ3vK6Q4GhItxsCOjqruGVuA3TNDH326o"
@@ -20,7 +26,41 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1087596331300-4j35fef3mad1dtailhv55e0feno4m3kk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1087596331300:android:c20d6645dfa9b12d3af3b1",
+        "android_client_info": {
+          "package_name": "com.gussanxz.organizze"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1087596331300-4j35fef3mad1dtailhv55e0feno4m3kk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJ3vK6Q4GhItxsCOjqruGVuA3TNDH326o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1087596331300-4j35fef3mad1dtailhv55e0feno4m3kk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
