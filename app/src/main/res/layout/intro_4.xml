@@ -38,7 +38,7 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Use no seu smartphone e acessando o Organizzer"
+        android:text="Use no seu smartphone e acessando o OrgaFácil"
         android:textColor="@android:color/darker_gray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

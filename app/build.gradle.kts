@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.gussanxz.organizze"
+    namespace = "com.gussanxz.orgafacil"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.gussanxz.organizze"
+        applicationId = "com.gussanxz.orgafacil"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

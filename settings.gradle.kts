@@ -20,6 +20,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Organizze"
+rootProject.name = "OrgaFácil"
 include(":app")
  

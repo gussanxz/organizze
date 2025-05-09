@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="calendarTheme" parent="Base.Theme.Organizze">
+    <style name="calendarTheme" parent="Base.Theme.OrgaFacil">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
         <item name="mcv_arrowColor">@color/white</item>

@@ -1,15 +1,15 @@
 {
   "project_info": {
     "project_number": "1087596331300",
-    "project_id": "organizze-gusdev",
-    "storage_bucket": "organizze-gusdev.firebasestorage.app"
+    "project_id": "orgafacil-gusdev",
+    "storage_bucket": "orgafacil-gusdev.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
         "mobilesdk_app_id": "1:1087596331300:android:c20d6645dfa9b12d3af3b1",
         "android_client_info": {
-          "package_name": "com.gussanxz.organizze"
+          "package_name": "com.gussanxz.orgafacil"
         }
       },
       "oauth_client": [],
