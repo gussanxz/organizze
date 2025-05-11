@@ -24,6 +24,10 @@ import com.gussanxz.orgafacil.model.Movimentacao;
 import com.gussanxz.orgafacil.model.Usuario;
 import com.gussanxz.orgafacil.model.DatePickerHelper;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 public class DespesasActivity extends AppCompatActivity {
 
     private TextInputEditText campoData, campoCategoria, campoDescricao;
@@ -48,6 +52,11 @@ public class DespesasActivity extends AppCompatActivity {
         campoData = findViewById(R.id.editData);
         campoCategoria = findViewById(R.id.editCategoria);
         campoDescricao = findViewById(R.id.editDescricao);
+
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+        String dataAtual = sdf.format(new Date());
+
+        campoData.setText(dataAtual);
 
         TextInputEditText TextInputDate = findViewById(R.id.editData);
 
