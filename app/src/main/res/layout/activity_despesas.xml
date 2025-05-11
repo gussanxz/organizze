@@ -17,10 +17,10 @@
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fabVoltar"
+            style="@style/NoElevationFab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            style="@style/NoElevationFab"
             android:clickable="true"
             android:onClick="retornarPrincipal"
             app:backgroundTint="@color/colorAccentDespesa"
@@ -46,10 +46,10 @@
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fabSalvarHeader"
+            style="@style/NoElevationFab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            style="@style/NoElevationFab"
             android:clickable="true"
             android:onClick="salvarDespesa"
             app:backgroundTint="@color/colorAccentDespesa"
@@ -77,6 +77,7 @@
             android:layout_marginTop="24dp"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
+            app:startIconDrawable="@drawable/ic_moeda_real_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -87,7 +88,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Informe um valor"
-                android:text="0.00" />
+                android:text="0.00"
+                android:inputType="numberDecimal"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -100,15 +102,17 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputValor">
+            app:layout_constraintTop_toBottomOf="@+id/textInputValor"
+            app:startIconDrawable="@drawable/ic_calendar_month_24">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editData"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Selecione uma data"
                 android:clickable="true"
-                android:inputType="none" />
+                android:hint="Selecione uma data"
+                android:inputType="none"
+                android:paddingStart="44dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -121,13 +125,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputData">
+            app:layout_constraintTop_toBottomOf="@+id/textInputData"
+            app:startIconDrawable="@drawable/ic_label_24">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editCategoria"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Categoria" />
+                android:hint="Categoria"
+                android:paddingStart="44dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -139,13 +145,15 @@
             android:paddingRight="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputCategoria">
+            app:layout_constraintTop_toBottomOf="@+id/textInputCategoria"
+            app:startIconDrawable="@drawable/ic_description_24">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editDescricao"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Descricao do produto ou servico" />
+                android:hint="Descricao do produto ou servico"
+                android:paddingStart="44dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
