@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#DCE1E8"/> <!-- Cor de fundo do botão selecionado (cinza claro) -->
+    <corners android:radius="21dp"/> <!-- Raio menor que o container para efeito de "dentro" -->
+</shape>
