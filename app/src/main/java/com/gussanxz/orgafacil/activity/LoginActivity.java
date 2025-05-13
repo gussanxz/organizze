@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -29,6 +30,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button botaoEntrar;
     private Usuario usuario;
     private FirebaseAuth autenticacao;
+    private RadioButton acessarTelaCadastro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +46,7 @@ public class LoginActivity extends AppCompatActivity {
         campoEmail = findViewById(R.id.editEmail);
         campoSenha = findViewById(R.id.editSenha);
         botaoEntrar = findViewById(R.id.buttonEntrar);
+        acessarTelaCadastro = findViewById(R.id.radioButtonCadastreSe);
 
         botaoEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +69,15 @@ public class LoginActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(LoginActivity.this, "Preencha o email", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        acessarTelaCadastro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                abrirTelaCadastro();
+
             }
         });
     }
@@ -109,7 +121,7 @@ public class LoginActivity extends AppCompatActivity {
         finish();
     }
 
-    public void cadastreSe(View view){
+    public void abrirTelaCadastro(){
         startActivity(new Intent(this, CadastroActivity.class));
     }
 }
