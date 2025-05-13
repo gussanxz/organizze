@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
@@ -28,7 +29,7 @@ import com.gussanxz.orgafacil.model.Usuario;
 
 public class CadastroActivity extends AppCompatActivity {
 
-    private TextView textoFacaLogin;
+    private RadioButton acessarTelaLogin;
     private EditText campoNome, campoEmail, campoSenha;
     private Button botaoCadastrar;
     private FirebaseAuth autenticacao;
@@ -49,7 +50,7 @@ public class CadastroActivity extends AppCompatActivity {
         campoEmail = findViewById(R.id.editEmail);
         campoSenha = findViewById(R.id.editSenha);
         botaoCadastrar = findViewById(R.id.buttonCadastrar);
-        textoFacaLogin = findViewById(R.id.textFacaLogin);
+        acessarTelaLogin = findViewById(R.id.radioButtonLogin);
 
         botaoCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,11 +85,11 @@ public class CadastroActivity extends AppCompatActivity {
             }
         });
 
-        textoFacaLogin.setOnClickListener(new View.OnClickListener() {
+        acessarTelaLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                abrirTelaCadastro();
+                abrirTelaLogin();
 
             }
         });
@@ -137,7 +138,7 @@ public class CadastroActivity extends AppCompatActivity {
         finish();
     }
 
-    public void abrirTelaCadastro() {
+    public void abrirTelaLogin() {
         startActivity(new Intent(this, LoginActivity.class));
         finish();
     }
