@@ -30,7 +30,7 @@ import com.gussanxz.orgafacil.model.Usuario;
 public class CadastroActivity extends AppCompatActivity {
 
     private RadioButton acessarTelaLogin;
-    private EditText campoNome, campoEmail, campoSenha;
+    private EditText campoNome, campoEmail, campoSenha, campoSenhaConfirmacao;
     private Button botaoCadastrar;
     private FirebaseAuth autenticacao;
     private Usuario usuario;
@@ -49,6 +49,7 @@ public class CadastroActivity extends AppCompatActivity {
         campoNome = findViewById(R.id.editNome);
         campoEmail = findViewById(R.id.editEmail);
         campoSenha = findViewById(R.id.editSenha);
+        campoSenhaConfirmacao = findViewById(R.id.editSenhaConfirmacao);
         botaoCadastrar = findViewById(R.id.buttonCadastrar);
         acessarTelaLogin = findViewById(R.id.radioButtonLogin);
 
@@ -59,18 +60,25 @@ public class CadastroActivity extends AppCompatActivity {
                 String textoNome = campoNome.getText().toString();
                 String textoEmail = campoEmail.getText().toString();
                 String textoSenha = campoSenha.getText().toString();
+                String textoSenhaConfirmacao = campoSenhaConfirmacao.getText().toString();
 
                 //Validar se os campos foram preenchidos
                 if (!textoNome.isEmpty()) {
                     if (!textoEmail.isEmpty()) {
                         if (!textoSenha.isEmpty()) {
-
-                            usuario = new Usuario();
-                            usuario.setNome( textoNome );
-                            usuario.setEmail( textoEmail );
-                            usuario.setSenha( textoSenha );
-                            cadastrarUsuario();
-
+                            if (!textoSenhaConfirmacao.isEmpty()){
+                                if (textoSenha.equals(textoSenhaConfirmacao)) {
+                                    usuario = new Usuario();
+                                    usuario.setNome(textoNome);
+                                    usuario.setEmail(textoEmail);
+                                    usuario.setSenha(textoSenha);
+                                    cadastrarUsuario();
+                                } else {
+                                    Toast.makeText(CadastroActivity.this, "Senhas nao conferem!", Toast.LENGTH_SHORT).show();
+                                }
+                            } else {
+                                Toast.makeText(CadastroActivity.this, "Confirme sua senha", Toast.LENGTH_SHORT).show();
+                            }
                         } else {
                             Toast.makeText(CadastroActivity.this, "Preencha a senha", Toast.LENGTH_SHORT).show();
                         }
