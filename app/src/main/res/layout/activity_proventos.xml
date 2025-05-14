@@ -123,11 +123,12 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputData">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editCategoria"
+            <EditText
+                android:id="@+id/textCategoria"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Categoria" />
+                android:hint="Categoria"
+                android:clickable="false"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
