@@ -1,6 +1,7 @@
 package com.gussanxz.orgafacil.activity.contas;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -19,6 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.gussanxz.orgafacil.R;
 import com.gussanxz.orgafacil.activity.SelecionarCategoriaActivity;
@@ -27,6 +30,8 @@ import com.gussanxz.orgafacil.helper.Base64Custom;
 import com.gussanxz.orgafacil.model.DatePickerHelper;
 import com.gussanxz.orgafacil.model.Movimentacao;
 import com.gussanxz.orgafacil.model.Usuario;
+
+import java.util.Locale;
 
 public class ProventosActivity extends AppCompatActivity {
 
@@ -84,6 +89,7 @@ public class ProventosActivity extends AppCompatActivity {
         });
 
         recuperarProventosTotal();
+        verificarImportacaoDeProvento();
 
     }
 
@@ -185,6 +191,81 @@ public class ProventosActivity extends AppCompatActivity {
 
         usuarioRef.child("proventosTotal").setValue(proventos);
 
+    }
+
+    private void verificarImportacaoDeProvento() {
+        String idUsuario = Base64Custom.codificarBase64(FirebaseAuth.getInstance().getCurrentUser().getEmail());
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference()
+                .child("movimentacao")
+                .child(idUsuario);
+
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Movimentacao ultimoData = null;
+                Movimentacao ultimoLancado = null;
+                long maiorTimestamp = -1;
+
+                for (DataSnapshot mes : snapshot.getChildren()) {
+                    for (DataSnapshot movSnap : mes.getChildren()) {
+                        Movimentacao mov = movSnap.getValue(Movimentacao.class);
+                        if (mov != null && "r".equals(mov.getTipo())) { // 'r' = receita/provento
+                            if (ultimoData == null || mov.getData().compareTo(ultimoData.getData()) > 0) {
+                                ultimoData = mov;
+                            }
+                            long time = movSnap.getKey().hashCode();
+                            if (time > maiorTimestamp) {
+                                maiorTimestamp = time;
+                                ultimoLancado = mov;
+                            }
+                        }
+                    }
+                }
+
+                if (ultimoData != null || ultimoLancado != null) {
+                    mostrarDialogImportarProvento(ultimoLancado, ultimoData);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {}
+        });
+    }
+
+    private void mostrarDialogImportarProvento(Movimentacao ultimaLancada, Movimentacao ultimaData) {
+        String[] opcoes = new String[] {
+                "Último lançado",
+                "Último por data",
+                "Não importar"
+        };
+
+        new AlertDialog.Builder(this)
+                .setTitle("Importar provento anterior?")
+                .setItems(opcoes, (dialog, which) -> {
+                    switch (which) {
+                        case 0:
+                            preencherCamposComProvento(ultimaLancada);
+                            break;
+                        case 1:
+                            preencherCamposComProvento(ultimaData);
+                            break;
+                        default:
+                            break;
+                    }
+                })
+                .show();
+    }
+
+    private void preencherCamposComProvento(Movimentacao mov) {
+        EditText valor = findViewById(R.id.editValor);
+        EditText data = findViewById(R.id.editData);
+        EditText categoria = findViewById(R.id.textCategoria);
+        EditText descricao = findViewById(R.id.editDescricao);
+
+        valor.setText(String.format(Locale.getDefault(), "%.2f", mov.getValor()));
+        data.setText(mov.getData());
+        categoria.setText(mov.getCategoria());
+        descricao.setText(mov.getDescricao());
     }
 
 }
