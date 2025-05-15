@@ -87,9 +87,9 @@
                 android:id="@+id/editValor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Informe um valor"
-                android:text="0.00"
-                android:inputType="numberDecimal"/>
+                android:inputType="numberDecimal"
+                android:hint="Valor"
+                android:paddingStart="44dp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
