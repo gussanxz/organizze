@@ -133,6 +133,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
                 android:hint="Categoria"
                 android:paddingStart="44dp" />
         </com.google.android.material.textfield.TextInputLayout>
