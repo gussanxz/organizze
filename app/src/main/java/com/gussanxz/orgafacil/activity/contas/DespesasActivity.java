@@ -1,6 +1,7 @@
 package com.gussanxz.orgafacil.activity.contas;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -19,6 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.gussanxz.orgafacil.R;
 import com.gussanxz.orgafacil.activity.SelecionarCategoriaActivity;
@@ -91,6 +94,8 @@ public class DespesasActivity extends AppCompatActivity {
         });
 
         recuperarDespesaTotal();
+
+        verificarImportacaoDeDespesa();
 
     }
 
@@ -192,6 +197,86 @@ public class DespesasActivity extends AppCompatActivity {
 
         usuarioRef.child("despesaTotal").setValue(despesa);
 
+    }
+
+    private void verificarImportacaoDeDespesa() {
+        String idUsuario = Base64Custom.codificarBase64(FirebaseAuth.getInstance().getCurrentUser().getEmail());
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference()
+                .child("movimentacao")
+                .child(idUsuario);
+
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Movimentacao ultimaData = null;
+                Movimentacao ultimaLancada = null;
+
+                long ultimoTimestamp = -1;
+
+                for (DataSnapshot mes : snapshot.getChildren()) {
+                    for (DataSnapshot movSnap : mes.getChildren()) {
+                        Movimentacao mov = movSnap.getValue(Movimentacao.class);
+                        if (mov != null && "d".equals(mov.getTipo())) {
+                            // Última por data
+                            if (ultimaData == null || mov.getData().compareTo(ultimaData.getData()) > 0) {
+                                ultimaData = mov;
+                            }
+                            // Última lançada (mais recente no banco)
+                            long time = movSnap.getRef().getKey().hashCode(); // ou usar movSnap.getChildrenCount() ou push key timestamp se salvar
+                            if (time > ultimoTimestamp) {
+                                ultimoTimestamp = time;
+                                ultimaLancada = mov;
+                            }
+                        }
+                    }
+                }
+
+                if (ultimaData != null || ultimaLancada != null) {
+                    mostrarDialogEscolhaImportacao(ultimaLancada, ultimaData);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {}
+        });
+    }
+
+    private void mostrarDialogEscolhaImportacao(Movimentacao ultimaLancada, Movimentacao ultimaData) {
+        String[] opcoes = new String[] {
+                "Última lançada",
+                "Última por data",
+                "Não importar"
+        };
+
+        new AlertDialog.Builder(this)
+                .setTitle("Importar despesa anterior?")
+                .setItems(opcoes, (dialog, which) -> {
+                    switch (which) {
+                        case 0:
+                            preencherCamposComUltima(ultimaLancada);
+                            break;
+                        case 1:
+                            preencherCamposComUltima(ultimaData);
+                            break;
+                        case 2:
+                        default:
+                            // Não faz nada
+                            break;
+                    }
+                })
+                .show();
+    }
+
+    private void preencherCamposComUltima(Movimentacao mov) {
+        EditText valor = findViewById(R.id.editValor);
+        EditText data = findViewById(R.id.editData);
+        EditText categoria = findViewById(R.id.textCategoria);
+        EditText descricao = findViewById(R.id.editDescricao);
+
+        valor.setText(String.format(Locale.getDefault(), "%.2f", mov.getValor()));
+        data.setText(mov.getData());
+        categoria.setText(mov.getCategoria());
+        descricao.setText(mov.getDescricao());
     }
 
 }
