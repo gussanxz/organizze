@@ -3,20 +3,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:layout_height="match_parent"
     tools:context=".activity.SelecionarCategoriaActivity">
+
+    <TextView
+        android:id="@+id/textTitulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="Selecione uma categoria"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <ListView
         android:id="@+id/listViewCategorias"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="#2F3131"
+        android:dividerHeight="1dp"/>
 
     <Button
         android:id="@+id/btnNovaCategoria"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Adicionar Nova Categoria"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp"
+        android:text="Adicionar nova categoria"
+        android:backgroundTint="?attr/colorPrimary"
+        android:textColor="@color/white"
+        android:textAllCaps="false" />
 </LinearLayout>
