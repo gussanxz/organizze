@@ -133,6 +133,7 @@ public class SelecionarCategoriaActivity extends AppCompatActivity {
                             categorias.add(categoria);
                         }
                     }
+                    categorias.sort(String::compareToIgnoreCase);
                     adapter.notifyDataSetChanged();
                 }
             }
