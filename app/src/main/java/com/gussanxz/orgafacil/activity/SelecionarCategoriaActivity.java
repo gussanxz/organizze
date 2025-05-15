@@ -11,11 +11,15 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -24,17 +28,19 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.gussanxz.orgafacil.R;
+import com.gussanxz.orgafacil.adapter.AdapterCategoria;
 import com.gussanxz.orgafacil.helper.Base64Custom;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Consumer;
 
 public class SelecionarCategoriaActivity extends AppCompatActivity {
 
-    private ListView listView;
+    private RecyclerView recyclerView;
+    private AdapterCategoria adapter;
     private List<String> categorias = new ArrayList<>();
-    private ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,18 +53,22 @@ public class SelecionarCategoriaActivity extends AppCompatActivity {
             return insets;
         });
 
-        listView = findViewById(R.id.listViewCategorias);
+        recyclerView = findViewById(R.id.recyclerCategorias);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        inicializarCategoriasPadrao();
-        carregarCategoriasDoFirebase();
-
-        listView.setOnItemClickListener((adapterView, view, position, id) -> {
-            String categoriaSelecionada = categorias.get(position);
+        adapter = new AdapterCategoria(categorias, categoria -> {
             Intent resultado = new Intent();
-            resultado.putExtra("categoriaSelecionada", categoriaSelecionada);
+            resultado.putExtra("categoriaSelecionada", categoria);
             setResult(Activity.RESULT_OK, resultado);
             finish();
         });
+        recyclerView.setAdapter(adapter);
+
+
+        inicializarRecyclerView();
+        carregarCategoriasDoFirebase();
+        configurarSwipeToDelete();
+
 
         findViewById(R.id.btnNovaCategoria).setOnClickListener(v -> mostrarDialogNovaCategoria());
     }
@@ -68,8 +78,8 @@ public class SelecionarCategoriaActivity extends AppCompatActivity {
                 "Alimentação", "Aluguel", "Pets", "Contas", "Doações e caridades",
                 "Educação", "Investimento", "Lazer", "Mercado", "Moradia"
         ));
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, categorias);
-        listView.setAdapter(adapter);
+        categorias.sort(String::compareToIgnoreCase);
+        adapter.notifyDataSetChanged();
     }
 
     private void mostrarDialogNovaCategoria() {
@@ -103,17 +113,11 @@ public class SelecionarCategoriaActivity extends AppCompatActivity {
         String novaChave = categoriasRef.push().getKey();
         categoriasRef.child(novaChave).setValue(nomeCategoria).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
-                Toast.makeText(this, "Categoria adicionada!", Toast.LENGTH_SHORT).show();
-                atualizarListaCategorias(nomeCategoria);
-            } else {
-                Toast.makeText(this, "Erro ao salvar categoria", Toast.LENGTH_SHORT).show();
+                categorias.add(nomeCategoria);
+                categorias.sort(String::compareToIgnoreCase);
+                adapter.notifyDataSetChanged();
             }
         });
-    }
-
-    private void atualizarListaCategorias(String novaCategoria) {
-        categorias.add(novaCategoria);
-        adapter.notifyDataSetChanged();
     }
 
     private void carregarCategoriasDoFirebase() {
@@ -126,6 +130,8 @@ public class SelecionarCategoriaActivity extends AppCompatActivity {
         categoriasRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@Nullable DataSnapshot snapshot) {
+                categorias.clear();
+
                 if (snapshot.exists()) {
                     for (DataSnapshot catSnap : snapshot.getChildren()) {
                         String categoria = catSnap.getValue(String.class);
@@ -133,13 +139,113 @@ public class SelecionarCategoriaActivity extends AppCompatActivity {
                             categorias.add(categoria);
                         }
                     }
-                    categorias.sort(String::compareToIgnoreCase);
-                    adapter.notifyDataSetChanged();
+                } else {
+                    categorias.addAll(Arrays.asList(
+                            "Alimentação", "Aluguel", "Pets", "Contas", "Doações e caridades",
+                            "Educação", "Investimento", "Lazer", "Mercado", "Moradia"
+                    ));
+                    for (String padrao : categorias) {
+                        categoriasRef.push().setValue(padrao);
+                    }
                 }
+                categorias.sort(String::compareToIgnoreCase);
+                adapter.notifyDataSetChanged();
             }
 
             @Override
             public void onCancelled(@Nullable DatabaseError error) {}
         });
     }
+
+    private void configurarSwipeToDelete() {
+        ItemTouchHelper.SimpleCallback swipeCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView,
+                                  @NonNull RecyclerView.ViewHolder viewHolder,
+                                  @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                int position = viewHolder.getAdapterPosition();
+                String categoria = adapter.getItem(position);
+
+                verificarSeCategoriaPodeSerRemovida(categoria, podeRemover -> {
+                    if (podeRemover) {
+                        removerCategoriaDoFirebase(categoria);
+                        adapter.removeItem(position);
+                        Toast.makeText(SelecionarCategoriaActivity.this, "Categoria excluída", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(SelecionarCategoriaActivity.this, "Categoria em uso e não pode ser removida", Toast.LENGTH_LONG).show();
+                        adapter.notifyItemChanged(position);
+                    }
+                });
+            }
+        };
+
+        new ItemTouchHelper(swipeCallback).attachToRecyclerView(recyclerView);
+    }
+
+    private void verificarSeCategoriaPodeSerRemovida(String categoria, Consumer<Boolean> callback) {
+        String idUsuario = Base64Custom.codificarBase64(FirebaseAuth.getInstance().getCurrentUser().getEmail());
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("movimentacao").child(idUsuario);
+
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot mes : snapshot.getChildren()) {
+                    for (DataSnapshot mov : mes.getChildren()) {
+                        String cat = mov.child("categoria").getValue(String.class);
+                        if (categoria.equalsIgnoreCase(cat)) {
+                            callback.accept(false);
+                            return;
+                        }
+                    }
+                }
+                callback.accept(true);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                callback.accept(false);
+            }
+        });
+    }
+
+    private void removerCategoriaDoFirebase(String categoria) {
+        String idUsuario = Base64Custom.codificarBase64(FirebaseAuth.getInstance().getCurrentUser().getEmail());
+        DatabaseReference categoriasRef = FirebaseDatabase.getInstance().getReference()
+                .child("usuarios").child(idUsuario).child("categorias");
+
+        categoriasRef.orderByValue().equalTo(categoria).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot catSnap : snapshot.getChildren()) {
+                    catSnap.getRef().removeValue();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {}
+        });
+    }
+
+    private void inicializarRecyclerView() {
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new AdapterCategoria(categorias, categoria -> {
+            Intent resultado = new Intent();
+            resultado.putExtra("categoriaSelecionada", categoria);
+            setResult(Activity.RESULT_OK, resultado);
+            finish();
+        });
+        recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        carregarCategoriasDoFirebase();
+    }
+
 }
