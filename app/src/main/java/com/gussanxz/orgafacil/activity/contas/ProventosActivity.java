@@ -1,11 +1,14 @@
 package com.gussanxz.orgafacil.activity.contas;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -18,6 +21,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 import com.gussanxz.orgafacil.R;
+import com.gussanxz.orgafacil.activity.SelecionarCategoriaActivity;
 import com.gussanxz.orgafacil.config.ConfiguracaoFirebase;
 import com.gussanxz.orgafacil.helper.Base64Custom;
 import com.gussanxz.orgafacil.model.DatePickerHelper;
@@ -26,12 +30,14 @@ import com.gussanxz.orgafacil.model.Usuario;
 
 public class ProventosActivity extends AppCompatActivity {
 
-    private TextInputEditText campoData, campoCategoria, campoDescricao;
-    private EditText campoValor;
+    private TextInputEditText campoData, campoDescricao;
+    private EditText campoValor, campoCategoria;
     private Movimentacao movimentacao;
     private DatabaseReference firebaseRef = ConfiguracaoFirebase.getFirebaseDatabase();
     private FirebaseAuth autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
     private Double proventosTotal;
+
+    private ActivityResultLauncher<Intent> launcherCategoria;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +52,7 @@ public class ProventosActivity extends AppCompatActivity {
 
         campoValor = findViewById(R.id.editValor);
         campoData = findViewById(R.id.editData);
-        campoCategoria = findViewById(R.id.editCategoria);
+        campoCategoria = findViewById(R.id.textCategoria);
         campoDescricao = findViewById(R.id.editDescricao);
 
         //Prenche o campo data com a data atual
@@ -60,6 +66,21 @@ public class ProventosActivity extends AppCompatActivity {
             public void onClick(View v) {
                 DatePickerHelper.showDatePickerDialog(ProventosActivity.this, TextInputDate);
             }
+        });
+
+        launcherCategoria = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
+                        String categoria = result.getData().getStringExtra("categoriaSelecionada");
+                        campoCategoria.setText(categoria);
+                    }
+                });
+
+        campoCategoria = findViewById(R.id.textCategoria);
+        campoCategoria.setOnClickListener(v -> {
+            Intent intent = new Intent(ProventosActivity.this, SelecionarCategoriaActivity.class);
+            launcherCategoria.launch(intent);
         });
 
         recuperarProventosTotal();
