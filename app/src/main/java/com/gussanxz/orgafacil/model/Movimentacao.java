@@ -8,6 +8,7 @@ import com.gussanxz.orgafacil.helper.Base64Custom;
 public class Movimentacao {
 
     private String data;
+    private String hora;
     private String categoria;
     private String descricao;
     private String tipo;
@@ -45,6 +46,14 @@ public class Movimentacao {
 
     public void setData(String data) {
         this.data = data;
+    }
+
+    public String getHora() {
+        return hora;
+    }
+
+    public void setHora(String hora) {
+        this.hora = hora;
     }
 
     public String getCategoria() {
