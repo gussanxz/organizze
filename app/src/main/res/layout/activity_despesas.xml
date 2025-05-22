@@ -98,8 +98,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:paddingRight="4dp"
+            app:layout_constraintEnd_toStartOf="@id/textInputHora"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputValor"
@@ -109,10 +109,34 @@
                 android:id="@+id/editData"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:clickable="true"
                 android:hint="Selecione uma data"
+                android:text="01/01/2025"
+                android:clickable="true"
                 android:inputType="none"
-                android:paddingStart="44dp" />
+                android:paddingStart="44dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputHora"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:paddingLeft="4dp"
+            android:paddingRight="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/textInputData"
+            app:layout_constraintTop_toBottomOf="@id/textInputValor"
+            app:startIconDrawable="@drawable/ic_relogio_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editHora"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Selecione uma hora"
+                android:text="00:00"
+                android:clickable="true"
+                android:inputType="none"
+                android:paddingStart="44dp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
