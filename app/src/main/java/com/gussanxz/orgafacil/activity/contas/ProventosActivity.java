@@ -55,16 +55,13 @@ public class ProventosActivity extends AppCompatActivity {
         campoCategoria = findViewById(R.id.textCategoria);
         campoDescricao = findViewById(R.id.editDescricao);
 
-        //Prenche o campo data com a data atual
-        TextInputEditText TextInputDate = findViewById(R.id.editData);
+        campoData.setFocusable(false);
+        campoData.setClickable(true);
 
-        TextInputDate.setFocusable(false);
-        TextInputDate.setClickable(true);
-
-        TextInputDate.setOnClickListener(new View.OnClickListener() {
+        campoData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatePickerHelper.showDatePickerDialog(ProventosActivity.this, TextInputDate);
+                DatePickerHelper.showDatePickerDialog(ProventosActivity.this, campoData);
             }
         });
 

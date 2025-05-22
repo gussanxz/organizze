@@ -63,15 +63,13 @@ public class DespesasActivity extends AppCompatActivity {
 
         campoData.setText(dataAtual);
 
-        TextInputEditText TextInputDate = findViewById(R.id.editData);
+        campoData.setFocusable(false);
+        campoData.setClickable(true);
 
-        TextInputDate.setFocusable(false);
-        TextInputDate.setClickable(true);
-
-        TextInputDate.setOnClickListener(new View.OnClickListener() {
+        campoData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatePickerHelper.showDatePickerDialog(DespesasActivity.this, TextInputDate);
+                DatePickerHelper.showDatePickerDialog(DespesasActivity.this, campoData);
             }
         });
 
