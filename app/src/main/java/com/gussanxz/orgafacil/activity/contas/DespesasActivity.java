@@ -27,6 +27,7 @@ import com.gussanxz.orgafacil.helper.Base64Custom;
 import com.gussanxz.orgafacil.model.Movimentacao;
 import com.gussanxz.orgafacil.model.Usuario;
 import com.gussanxz.orgafacil.model.DatePickerHelper;
+import com.gussanxz.orgafacil.model.TimePickerHelper;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -34,7 +35,7 @@ import java.util.Locale;
 
 public class DespesasActivity extends AppCompatActivity {
 
-    private TextInputEditText campoData, campoDescricao;
+    private TextInputEditText campoData, campoDescricao, campoHora;
     private EditText campoValor, campoCategoria;
     private Movimentacao movimentacao;
     private DatabaseReference firebaseRef = ConfiguracaoFirebase.getFirebaseDatabase();
@@ -57,6 +58,7 @@ public class DespesasActivity extends AppCompatActivity {
         campoData = findViewById(R.id.editData);
         campoCategoria = findViewById(R.id.textCategoria);
         campoDescricao = findViewById(R.id.editDescricao);
+        campoHora = findViewById(R.id.editHora);
 
         campoData.setText(DatePickerHelper.setDataAtual());
 
@@ -67,6 +69,16 @@ public class DespesasActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 DatePickerHelper.showDatePickerDialog(DespesasActivity.this, campoData);
+            }
+        });
+
+        campoHora.setFocusable(false);
+        campoHora.setClickable(true);
+
+        campoHora.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TimePickerHelper.showTimePickerDialog(DespesasActivity.this, campoHora);
             }
         });
 

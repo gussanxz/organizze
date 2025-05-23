@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import androidx.activity.EdgeToEdge;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -26,11 +27,12 @@ import com.gussanxz.orgafacil.config.ConfiguracaoFirebase;
 import com.gussanxz.orgafacil.helper.Base64Custom;
 import com.gussanxz.orgafacil.model.DatePickerHelper;
 import com.gussanxz.orgafacil.model.Movimentacao;
+import com.gussanxz.orgafacil.model.TimePickerHelper;
 import com.gussanxz.orgafacil.model.Usuario;
 
 public class ProventosActivity extends AppCompatActivity {
 
-    private TextInputEditText campoData, campoDescricao;
+    private TextInputEditText campoData, campoDescricao, campoHora;
     private EditText campoValor, campoCategoria;
     private Movimentacao movimentacao;
     private DatabaseReference firebaseRef = ConfiguracaoFirebase.getFirebaseDatabase();
@@ -54,6 +56,7 @@ public class ProventosActivity extends AppCompatActivity {
         campoData = findViewById(R.id.editData);
         campoCategoria = findViewById(R.id.textCategoria);
         campoDescricao = findViewById(R.id.editDescricao);
+        campoHora = findViewById(R.id.editHora);
 
         campoData.setText(DatePickerHelper.setDataAtual());
 
@@ -64,6 +67,16 @@ public class ProventosActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 DatePickerHelper.showDatePickerDialog(ProventosActivity.this, campoData);
+            }
+        });
+
+        campoHora.setFocusable(false);
+        campoHora.setClickable(true);
+
+        campoHora.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TimePickerHelper.showTimePickerDialog(ProventosActivity.this, campoHora);
             }
         });
 
@@ -94,14 +107,14 @@ public class ProventosActivity extends AppCompatActivity {
             String data = campoData.getText().toString();
             Double valorRecuperado = Double.parseDouble(campoValor.getText().toString());
 
-            movimentacao.setValor( valorRecuperado );
+            movimentacao.setValor(valorRecuperado);
             movimentacao.setCategoria(campoCategoria.getText().toString());
             movimentacao.setDescricao(campoDescricao.getText().toString());
             movimentacao.setData(data);
             movimentacao.setTipo("r");
 
             Double proventosAtualizada = proventosTotal + valorRecuperado;
-            atualizarProventos( proventosAtualizada );
+            atualizarProventos(proventosAtualizada);
 
             movimentacao.salvar(data);
             Toast.makeText(this, "Proventos adicionada!", Toast.LENGTH_SHORT).show();
@@ -110,7 +123,7 @@ public class ProventosActivity extends AppCompatActivity {
         }
     }
 
-    public void retornarPrincipal(View view){
+    public void retornarPrincipal(View view) {
         startActivity(new Intent(this, PrincipalActivity.class));
     }
 
@@ -121,32 +134,32 @@ public class ProventosActivity extends AppCompatActivity {
         String textoCategoria = campoCategoria.getText().toString();
         String textoDescricao = campoDescricao.getText().toString();
 
-        if ( !textoValor.isEmpty()) {
-            if ( !textoData.isEmpty()) {
-                if ( !textoCategoria.isEmpty()) {
-                    if ( !textoDescricao.isEmpty()) {
+        if (!textoValor.isEmpty()) {
+            if (!textoData.isEmpty()) {
+                if (!textoCategoria.isEmpty()) {
+                    if (!textoDescricao.isEmpty()) {
 
                         return true;
 
-                    }else {
+                    } else {
                         Toast.makeText(ProventosActivity.this,
                                 "Descrição não foi preenchida!", Toast.LENGTH_SHORT).show();
                         return false;
 
                     }
-                }else {
+                } else {
                     Toast.makeText(ProventosActivity.this,
                             "Categoria não foi preenchida!", Toast.LENGTH_SHORT).show();
                     return false;
                 }
-            }else {
+            } else {
                 Toast.makeText(ProventosActivity.this,
                         "Data não foi preenchida!", Toast.LENGTH_SHORT).show();
                 return false;
 
             }
 
-        }else {
+        } else {
             Toast.makeText(ProventosActivity.this,
                     "Valor não foi preenchido!", Toast.LENGTH_SHORT).show();
             return false;
@@ -158,13 +171,13 @@ public class ProventosActivity extends AppCompatActivity {
     public void recuperarProventosTotal() {
 
         String emailUsuario = autenticacao.getCurrentUser().getEmail();
-        String idUsuario = Base64Custom.codificarBase64( emailUsuario );
-        DatabaseReference usuarioRef = firebaseRef.child("usuarios").child( idUsuario );
+        String idUsuario = Base64Custom.codificarBase64(emailUsuario);
+        DatabaseReference usuarioRef = firebaseRef.child("usuarios").child(idUsuario);
 
         usuarioRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Usuario usuario = dataSnapshot.getValue( Usuario.class );
+                Usuario usuario = dataSnapshot.getValue(Usuario.class);
                 proventosTotal = usuario.getProventosTotal();
             }
 
