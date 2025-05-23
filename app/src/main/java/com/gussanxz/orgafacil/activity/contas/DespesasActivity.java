@@ -119,6 +119,7 @@ public class DespesasActivity extends AppCompatActivity {
             movimentacao.setCategoria(campoCategoria.getText().toString());
             movimentacao.setDescricao(campoDescricao.getText().toString());
             movimentacao.setData(data);
+            movimentacao.setHora(campoHora.getText().toString());
             movimentacao.setTipo("d");
 
             Double despesaAtualizada = despesaTotal + valorRecuperado;

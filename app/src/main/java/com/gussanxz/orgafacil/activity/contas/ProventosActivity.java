@@ -113,6 +113,7 @@ public class ProventosActivity extends AppCompatActivity {
             movimentacao.setCategoria(campoCategoria.getText().toString());
             movimentacao.setDescricao(campoDescricao.getText().toString());
             movimentacao.setData(data);
+            movimentacao.setHora(campoHora.getText().toString());
             movimentacao.setTipo("r");
 
             Double proventosAtualizada = proventosTotal + valorRecuperado;
