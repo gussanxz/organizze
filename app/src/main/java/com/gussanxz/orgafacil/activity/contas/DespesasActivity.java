@@ -58,10 +58,7 @@ public class DespesasActivity extends AppCompatActivity {
         campoCategoria = findViewById(R.id.textCategoria);
         campoDescricao = findViewById(R.id.editDescricao);
 
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
-        String dataAtual = sdf.format(new Date());
-
-        campoData.setText(dataAtual);
+        campoData.setText(DatePickerHelper.setDataAtual());
 
         campoData.setFocusable(false);
         campoData.setClickable(true);

@@ -1,7 +1,5 @@
 package com.gussanxz.orgafacil.model;
 
-import static android.content.ContentValues.TAG;
-
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.util.Log;
@@ -10,11 +8,13 @@ import android.widget.EditText;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 public class DatePickerHelper {
     private static final String TAG  =  "DatePickerHelper";
     public static String mesAnoDataEscolhida = "";
+    public static String dataAtual;
 
     public static void showDatePickerDialog(Context context, final EditText editText) {
         // Obtem a data atual
@@ -61,5 +61,10 @@ public class DatePickerHelper {
         String mesAno = mes + ano;
         return  mesAno;
 
+    }
+    public static String setDataAtual(){
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+        dataAtual = sdf.format(new Date());
+        return dataAtual;
     }
 }
