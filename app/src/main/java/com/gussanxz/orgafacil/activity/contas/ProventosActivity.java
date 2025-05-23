@@ -70,6 +70,8 @@ public class ProventosActivity extends AppCompatActivity {
             }
         });
 
+        campoHora.setText(TimePickerHelper.setHoraAtual());
+
         campoHora.setFocusable(false);
         campoHora.setClickable(true);
 

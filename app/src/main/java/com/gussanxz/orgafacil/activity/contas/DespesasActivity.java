@@ -72,6 +72,8 @@ public class DespesasActivity extends AppCompatActivity {
             }
         });
 
+        campoHora.setText(TimePickerHelper.setHoraAtual());
+
         campoHora.setFocusable(false);
         campoHora.setClickable(true);
 
