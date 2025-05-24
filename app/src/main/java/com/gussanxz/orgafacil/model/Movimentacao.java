@@ -5,7 +5,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.gussanxz.orgafacil.config.ConfiguracaoFirebase;
 import com.gussanxz.orgafacil.helper.Base64Custom;
 
-public class Movimentacao {
+import java.io.Serializable;
+
+public class Movimentacao implements Serializable {
 
     private String data;
     private String hora;

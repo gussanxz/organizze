@@ -146,13 +146,30 @@ public class PrincipalActivity extends AppCompatActivity {
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 Log.i("swipe", "item foi arrastado");
-                excluirMovimentacao(viewHolder);
+                if (direction == ItemTouchHelper.START) {
+                    excluirMovimentacao(viewHolder);
+                } else if (direction == ItemTouchHelper.END) {
+                    editarMovimentacao(viewHolder);
+                }
+
             }
         };
 
         new ItemTouchHelper( itemTouch ).attachToRecyclerView( recyclerView );
 
     }
+
+    public void editarMovimentacao(RecyclerView.ViewHolder viewHolder) {
+        int position = viewHolder.getAdapterPosition();
+        Movimentacao movimentacao = movimentacoes.get(position);
+
+        Intent intent = new Intent(PrincipalActivity.this, EditarMovimentacaoActivity.class);
+        intent.putExtra("movimentacaoSelecionada", movimentacao);
+        intent.putExtra("keyFirebase", movimentacao.getKey());
+        startActivity(intent);
+        adapterMovimentacao.notifyDataSetChanged(); // para restaurar o item na lista
+    }
+
 
     public void excluirMovimentacao(RecyclerView.ViewHolder viewHolder){
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
