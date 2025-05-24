@@ -30,6 +30,7 @@ import java.util.Calendar;
 public class EditarMovimentacaoActivity extends AppCompatActivity {
 
     private EditText editData, editHora, editDescricao, editValor, editCategoria;
+    private TextView textViewHeader;
     private Movimentacao movimentacao;
     private boolean isModoEdicao = false;
     private String keyFirebase;
@@ -52,6 +53,7 @@ public class EditarMovimentacaoActivity extends AppCompatActivity {
             }
         }
 
+        textViewHeader = findViewById(R.id.textViewHeader);
         editData = findViewById(R.id.editData);
         editHora = findViewById(R.id.editHora);
         editDescricao = findViewById(R.id.editDescricao);
@@ -61,6 +63,14 @@ public class EditarMovimentacaoActivity extends AppCompatActivity {
         keyFirebase = getIntent().getStringExtra("keyFirebase");
 
         if (movimentacao != null) {
+            if (textViewHeader != null) {
+                if (movimentacao.getTipo().equals("d")) {
+                    textViewHeader.setText("Editar Despesa");
+                } else if (movimentacao.getTipo().equals("r")) {
+                    textViewHeader.setText("Editar Provento");
+                }
+            }
+
             valorAnterior = movimentacao.getValor();
             tipoAnterior = movimentacao.getTipo();
 
