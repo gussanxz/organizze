@@ -56,7 +56,7 @@ public class DespesasActivity extends AppCompatActivity {
 
         campoValor = findViewById(R.id.editValor);
         campoData = findViewById(R.id.editData);
-        campoCategoria = findViewById(R.id.textCategoria);
+        campoCategoria = findViewById(R.id.editCategoria);
         campoDescricao = findViewById(R.id.editDescricao);
         campoHora = findViewById(R.id.editHora);
 
@@ -92,8 +92,7 @@ public class DespesasActivity extends AppCompatActivity {
                         campoCategoria.setText(categoria);
                     }
                 });
-
-        campoCategoria = findViewById(R.id.textCategoria);
+        
         campoCategoria.setOnClickListener(v -> {
             Intent intent = new Intent(DespesasActivity.this, SelecionarCategoriaActivity.class);
             launcherCategoria.launch(intent);

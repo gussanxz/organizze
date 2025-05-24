@@ -152,13 +152,14 @@
             app:layout_constraintTop_toBottomOf="@+id/textInputData"
             app:startIconDrawable="@drawable/ic_label_24">
 
-            <EditText
-                android:id="@+id/textCategoria"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editCategoria"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="false"
                 android:hint="Categoria"
-                android:clickable="false"
-                android:paddingStart="44dp"/>
+                android:paddingStart="44dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
