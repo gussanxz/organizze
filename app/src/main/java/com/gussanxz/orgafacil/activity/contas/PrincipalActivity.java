@@ -15,6 +15,8 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -64,6 +66,8 @@ public class PrincipalActivity extends AppCompatActivity {
     private Movimentacao movimentacao;
     private DatabaseReference movimentacaoRef;
     private String mesAnoSelecionado;
+    private ActivityResultLauncher<Intent> launcher;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +95,16 @@ public class PrincipalActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapterMovimentacao);
+
+        launcher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if (result.getResultCode() == RESULT_OK) {
+                        atualizarSaldo(); // ✅ atualiza saldo ao voltar
+                        adapterMovimentacao.notifyDataSetChanged(); // força atualizar lista
+                    }
+                }
+        );
 
     }
 
@@ -166,7 +180,7 @@ public class PrincipalActivity extends AppCompatActivity {
         Intent intent = new Intent(PrincipalActivity.this, EditarMovimentacaoActivity.class);
         intent.putExtra("movimentacaoSelecionada", movimentacao);
         intent.putExtra("keyFirebase", movimentacao.getKey());
-        startActivity(intent);
+        launcher.launch(intent);
         adapterMovimentacao.notifyDataSetChanged(); // para restaurar o item na lista
     }
 
