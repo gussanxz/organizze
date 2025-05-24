@@ -87,6 +87,10 @@ public class EditarMovimentacaoActivity extends AppCompatActivity {
         }
     }
 
+    public void retornarPrincipal(View view) {
+        startActivity(new Intent(this, PrincipalActivity.class));
+    }
+
     private void abrirDataPicker() {
         Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
