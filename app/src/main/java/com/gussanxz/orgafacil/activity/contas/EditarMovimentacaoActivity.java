@@ -1,16 +1,21 @@
 package com.gussanxz.orgafacil.activity.contas;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.github.clans.fab.FloatingActionButton;
 import com.gussanxz.orgafacil.R;
 import com.gussanxz.orgafacil.config.ConfiguracaoFirebase;
 import com.gussanxz.orgafacil.helper.Base64Custom;
@@ -37,7 +42,15 @@ public class EditarMovimentacaoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         isModoEdicao = true;
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_despesas);
+
+        movimentacao = (Movimentacao) getIntent().getSerializableExtra("movimentacaoSelecionada");
+        if (movimentacao != null) {
+            if (movimentacao.getTipo().equals("d")) {
+                setContentView(R.layout.activity_despesas);
+            } else if (movimentacao.getTipo().equals("r")) {
+                setContentView(R.layout.activity_proventos);
+            }
+        }
 
         editData = findViewById(R.id.editData);
         editHora = findViewById(R.id.editHora);
@@ -45,7 +58,6 @@ public class EditarMovimentacaoActivity extends AppCompatActivity {
         editValor = findViewById(R.id.editValor);
         editCategoria = findViewById(R.id.editCategoria);
 
-        movimentacao = (Movimentacao) getIntent().getSerializableExtra("movimentacaoSelecionada");
         keyFirebase = getIntent().getStringExtra("keyFirebase");
 
         if (movimentacao != null) {
@@ -94,6 +106,14 @@ public class EditarMovimentacaoActivity extends AppCompatActivity {
     }
 
     public void salvarDespesa(View view) {
+        if (isModoEdicao) {
+            atualizarMovimentacaoExistente();
+        } else {
+            salvarNovaMovimentacao(); // opcional, se quiser aproveitar a mesma activity
+        }
+    }
+
+    public void salvarProventos(View view) {
         if (isModoEdicao) {
             atualizarMovimentacaoExistente();
         } else {
