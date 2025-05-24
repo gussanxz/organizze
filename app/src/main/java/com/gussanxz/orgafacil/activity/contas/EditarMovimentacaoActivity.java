@@ -1,5 +1,6 @@
 package com.gussanxz.orgafacil.activity.contas;
 
+import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.view.View;
@@ -57,9 +58,29 @@ public class EditarMovimentacaoActivity extends AppCompatActivity {
             editDescricao.setText(movimentacao.getDescricao());
             editValor.setText(String.valueOf(valorAnterior));
             editCategoria.setText(movimentacao.getCategoria());
+
+            editData.setOnClickListener(v -> abrirDataPicker());
+            editHora.setOnClickListener(v -> abrirTimePicker());
+
         }
     }
 
+    private void abrirDataPicker() {
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog datePicker = new DatePickerDialog(
+                this,
+                (view, selectedYear, selectedMonth, selectedDay) -> {
+                    String dataSelecionada = String.format("%02d/%02d/%d", selectedDay, selectedMonth + 1, selectedYear);
+                    editData.setText(dataSelecionada);
+                },
+                year, month, day
+        );
+        datePicker.show();
+    }
 
     private void abrirTimePicker() {
         Calendar calendar = Calendar.getInstance();
