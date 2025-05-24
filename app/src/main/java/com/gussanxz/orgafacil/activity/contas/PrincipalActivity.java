@@ -9,6 +9,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.RectF;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -93,6 +97,40 @@ public class PrincipalActivity extends AppCompatActivity {
     public void swipe(){
 
         ItemTouchHelper.Callback itemTouch = new ItemTouchHelper.Callback() {
+
+
+            @Override
+            public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView,
+                                    @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY,
+                                    int actionState, boolean isCurrentlyActive) {
+
+                super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
+
+                View itemView = viewHolder.itemView;
+                Paint backgroundPaint = new Paint();
+                Paint textPaint = new Paint();
+
+                // Configura pintura do texto
+                textPaint.setColor(Color.WHITE);
+                textPaint.setTextSize(40f);
+                textPaint.setAntiAlias(true);
+
+
+                float textY = viewHolder.itemView.getTop() + viewHolder.itemView.getHeight() / 2f + 15;
+
+                if (dX > 0) { // Direita - Editar
+                    backgroundPaint.setColor(Color.parseColor("#4CAF50"));
+                    c.drawRect((float) itemView.getLeft(), (float) itemView.getTop(), dX,
+                            (float) itemView.getBottom(), backgroundPaint);
+                    c.drawText("Editar", itemView.getLeft() + 50, textY, textPaint);
+                } else if (dX < 0) { // Esquerda - Excluir
+                    backgroundPaint.setColor(Color.parseColor("#F44336"));
+                    c.drawRect((float) itemView.getRight() + dX, (float) itemView.getTop(),
+                            (float) itemView.getRight(), (float) itemView.getBottom(), backgroundPaint);
+                    c.drawText("Excluir", itemView.getRight() - 200, textY, textPaint);
+                }
+
+            }
             @Override
             public int getMovementFlags(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
                 int dragFlags = ItemTouchHelper.ACTION_STATE_IDLE;
